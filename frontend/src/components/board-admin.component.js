@@ -27,6 +27,7 @@ export default class BoardAdmin extends React.Component {
                             <tr>
                                 <th>Id </th>
                                 <th>username</th>
+                                <th>Balance</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,7 @@ export default class BoardAdmin extends React.Component {
                                     <tr key={user.id}>
                                         <td>{user.id}</td>
                                         <td>{user.username}</td>
+                                        <td>{user.account}</td>
                                     </tr>
                                 )
                             }

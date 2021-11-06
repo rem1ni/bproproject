@@ -1,5 +1,6 @@
 package com.backend.bprobackend.security.service;
 
+import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,25 +10,27 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-
     private String username;
-
+    private Long account;
     @JsonIgnore
     private String password;
 
+
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String username, String password,
+    public UserDetailsImpl(Long id, String username, String password, Long account,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.account=account;
         this.authorities = authorities;
     }
 
@@ -36,10 +39,12 @@ public class UserDetailsImpl implements UserDetails {
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
 
+
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
                 user.getPassword(),
+                user.getAccount(),
                 authorities);
     }
     @Override
@@ -80,6 +85,12 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public Long getAccount() {
+        return account;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {

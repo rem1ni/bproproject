@@ -84,6 +84,6 @@ public class User  {
     }
 
     public void setContract(Set<Contract> contract) {
-        this.contract = contract;
+        this.contract= contract;
     }
 }

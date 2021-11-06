@@ -11,7 +11,10 @@ public class Contract {
     private String name;
     private Long sum;
 
-    public Contract(){}
+
+    public Contract() {
+
+    }
 
     public Integer getId() {
         return id;

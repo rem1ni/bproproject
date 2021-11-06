@@ -37,6 +37,10 @@ export default class Profile extends Component {
             Username: <strong>{currentUser.username}</strong><br></br>
           </p3>
           <br></br>
+          <p3>
+Balance: <strong>{currentUser.account}</strong><br></br>
+</p3>
+<br></br>
         <p2>
          Roles{": "}<br></br>
           {currentUser.roles && currentUser.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}

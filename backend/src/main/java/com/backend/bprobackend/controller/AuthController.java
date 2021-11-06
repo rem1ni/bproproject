@@ -60,6 +60,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
+                userDetails.getAccount(),
                 roles));
     }
 
@@ -75,6 +76,7 @@ public class AuthController {
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
+        user.setAccount(0L);
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)

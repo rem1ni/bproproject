@@ -1,5 +1,7 @@
 package com.backend.bprobackend.response;
 
+import com.backend.bprobackend.model.Contract;
+
 import java.util.List;
 
 
@@ -7,15 +9,20 @@ public class JwtResponse {
     private String token;
     private String type ="Bearer";
     private Long id;
+    private Long account;
     private String username;
     private List<String> roles;
 
-    public JwtResponse(String accessToken, Long id, String username, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, String username,Long account, List<String> roles) {
         this.token = accessToken;
         this.id = id;
+        this.account=account;
         this.username = username;
         this.roles = roles;
     }
+
+
+
     public String getAccessToken(){
         return token;
     }
@@ -55,4 +62,22 @@ public class JwtResponse {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+
+    public Long getAccount() {
+        return account;
+    }
+
+    public void setAccount(Long account) {
+        this.account = account;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+
 }
