@@ -40,6 +40,10 @@ export default class Profile extends Component {
           <p3>
 Balance: <strong>{currentUser.account}</strong><br></br>
 </p3>
+<p2>
+Contract{": "} <strong>{currentUser.contract}</strong><br></br>
+Sum to pay{": "} <strong>{currentUser.contract_sum}</strong><br></br>
+</p2>
 <br></br>
         <p2>
          Roles{": "}<br></br>

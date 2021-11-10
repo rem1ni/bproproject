@@ -4,7 +4,6 @@ import com.backend.bprobackend.model.User;
 import com.backend.bprobackend.repository.UserRepos;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,11 +21,13 @@ public class UserController {
         this.userRepos = userRepos;
     }
 
+
     // надо доделать безопасность
     @GetMapping("/admin")
-    @Secured("ROLE_ADMIN")
     public List<User> adminAccess(){
-        return userRepos.findAll();
+        List<User> users = userRepos.findAll();
+        System.out.println(users);
+        return users;
     }
 
 }

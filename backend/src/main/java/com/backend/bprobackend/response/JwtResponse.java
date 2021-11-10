@@ -12,12 +12,16 @@ public class JwtResponse {
     private Long account;
     private String username;
     private List<String> roles;
+    private String contract;
+    private Long contract_sum;
 
-    public JwtResponse(String accessToken, Long id, String username,Long account, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, String username,Long account,String contract,Long contract_sum, List<String> roles) {
         this.token = accessToken;
         this.id = id;
         this.account=account;
         this.username = username;
+        this.contract=contract;
+        this.contract_sum=contract_sum;
         this.roles = roles;
     }
 
@@ -54,6 +58,21 @@ public class JwtResponse {
         this.username = username;
     }
 
+    public String getContract() {
+        return contract;
+    }
+
+    public void setContract(String contract) {
+        this.contract = contract;
+    }
+
+    public Long getContract_sum() {
+        return contract_sum;
+    }
+
+    public void setContract_sum(Long contract_sum) {
+        this.contract_sum = contract_sum;
+    }
 
     public List<String> getRoles() {
         return roles;

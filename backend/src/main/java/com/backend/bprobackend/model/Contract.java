@@ -25,7 +25,7 @@ public class Contract {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name= name;
     }
 
     public Long getSum() {

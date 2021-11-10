@@ -18,11 +18,11 @@ public class User  {
     private String username;
     private String password;
     private Long account;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "contracts_user",
-            joinColumns  = @JoinColumn(name = "contract_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<Contract> contract =new HashSet<>();
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "contract_id"))
+    private Contract contract;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
     joinColumns = @JoinColumn(name = "user_id"),
@@ -79,11 +79,11 @@ public class User  {
         this.roles = roles;
     }
 
-    public Set<Contract> getContract() {
+    public Contract getContract() {
         return contract;
     }
 
-    public void setContract(Set<Contract> contract) {
+    public void setContract(Contract contract) {
         this.contract= contract;
     }
 }

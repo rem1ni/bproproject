@@ -1,10 +1,12 @@
 package com.backend.bprobackend.controller;
+import com.backend.bprobackend.repository.ContractRepos;
 import com.backend.bprobackend.response.JwtResponse;
 import com.backend.bprobackend.request.LoginRequest;
 import com.backend.bprobackend.request.SignupRequest;
 import com.backend.bprobackend.model.EnumRole;
 import com.backend.bprobackend.model.Role;
 import com.backend.bprobackend.model.User;
+import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.repository.RoleRepos;
 import com.backend.bprobackend.repository.UserRepos;
 import com.backend.bprobackend.response.MessageResponse;
@@ -38,6 +40,9 @@ public class AuthController {
     RoleRepos roleRepository;
 
     @Autowired
+    ContractRepos contractRepository;
+
+    @Autowired
     PasswordEncoder encoder;
 
     @Autowired
@@ -56,11 +61,12 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
-
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getAccount(),
+                userDetails.getContracts(),
+                userDetails.getContracts_sum(),
                 roles));
     }
 
@@ -76,14 +82,16 @@ public class AuthController {
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
-        user.setAccount(0L);
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)
                     .orElseThrow(() -> new RuntimeException("Role is not found."));
             roles.add(userRole);
+            Contract userContract = contractRepository.findByName("None").orElseThrow(() -> new RuntimeException("Contract is not found."));
+            user.setContract(userContract);
         }
         user.setRoles(roles);
+        user.setAccount(0L);
         userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registered!"));
     }

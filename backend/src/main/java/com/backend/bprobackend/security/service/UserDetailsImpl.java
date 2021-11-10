@@ -24,13 +24,17 @@ public class UserDetailsImpl implements UserDetails {
 
 
     private Collection<? extends GrantedAuthority> authorities;
+    private  String contracts;
+    private Long contracts_sum;
 
-    public UserDetailsImpl(Long id, String username, String password, Long account,
+    public UserDetailsImpl(Long id, String username, String password, Long account, String contracts,Long contracts_sum,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.account=account;
+        this.contracts=contracts;
+        this.contracts_sum=contracts_sum;
         this.authorities = authorities;
     }
 
@@ -45,6 +49,8 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getPassword(),
                 user.getAccount(),
+                user.getContract().getName(),
+                user.getContract().getSum(),
                 authorities);
     }
     @Override
@@ -91,6 +97,13 @@ public class UserDetailsImpl implements UserDetails {
     }
 
 
+    public String getContracts() {
+        return contracts;
+    }
+
+    public Long getContracts_sum() {
+        return contracts_sum;
+    }
 
     @Override
     public boolean equals(Object o) {
