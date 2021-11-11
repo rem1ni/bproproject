@@ -36,7 +36,7 @@ export default class Profile extends Component {
           Id{ ":"}
          <strong> {currentUser.id} </strong>
         </p1>
-          <p1>
+          <p1 align="center">
             Username: <strong>{currentUser.username}</strong><br></br>
           </p1>
           <br></br>
