@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Start from "./components/Start";
 import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
@@ -81,6 +82,11 @@ class App extends Component {
                   LogOut
                 </a>
               </li>
+              <li className="nav-item">
+                <Link to={"/contract"} className="nav-link">
+                  Contracts
+                </Link>
+              </li>
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
@@ -95,6 +101,12 @@ class App extends Component {
                   Sign Up
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link to={"/contract"} className="nav-link">
+                  Contracts
+                </Link>
+              </li>
             </div>
           )}
         </nav>
@@ -105,6 +117,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/admin" component={BoardAdmin} />
+            <Route path="/contract" component={Start} />
           </Switch>
         </div>
 
