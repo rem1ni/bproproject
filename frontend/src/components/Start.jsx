@@ -1,8 +1,8 @@
 import React, {useRef, useState, useMemo, useEffect} from 'react';
 import PostList from "../components/PostList";
 import axios from 'axios';
-import PostService from "src/PostService";
-import {UseFetching} from "src/UseFetching";
+import PostService from "../PostService";
+import {UseFetching} from "../UseFetching";
 
 function Start() {
 

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
+import {Card} from "react-bootstrap";
 export default class Profile extends Component {
   constructor(props) {
     super(props);

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Start from "src/components/Start";
+import Start from "./components/Start.jsx";
 import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
