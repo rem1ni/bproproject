@@ -9,13 +9,11 @@ const Balance = () => {
         let num = Number(sum);
         const currentUser = AuthService.getCurrentUser();
         let i = currentUser.id;
-        axios
+        return axios
             .post("http://localhost:8080/bpro/userpay", {
                 i,
                 num
             })
-            window.location.assign('http://localhost:3000/profile');
-
     }
     return (
         <div className="container mt-5">
