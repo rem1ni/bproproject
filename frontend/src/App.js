@@ -9,6 +9,7 @@ import Register from "./components/register.component";
 import Profile from "./components/profile.component";
 import BoardAdmin from "./components/board-admin.component";
 import EventBus from "./common/EventBus";
+import Balance from "./components/Balance";
 
 class App extends Component {
   constructor(props) {
@@ -86,6 +87,11 @@ class App extends Component {
                   Contracts
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to={"/balance"} className="nav-link">
+                  Balance
+                </Link>
+              </li>
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
@@ -118,6 +124,9 @@ class App extends Component {
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/contract">
               <Start/>
+            </Route>
+            <Route path="/balance">
+              <Balance/>
             </Route>
           </Switch>
         </div>
