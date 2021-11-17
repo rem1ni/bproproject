@@ -1,6 +1,5 @@
 package com.backend.bprobackend.security.service;
 
-import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
@@ -18,24 +16,32 @@ public class UserDetailsImpl implements UserDetails {
 
     private Long id;
     private String username;
-    private Long account;
+    private Double account;
+    private Double minutes;
     @JsonIgnore
     private String password;
 
 
     private Collection<? extends GrantedAuthority> authorities;
     private  String contracts;
-    private Long contracts_sum;
-
-    public UserDetailsImpl(Long id, String username, String password, Long account, String contracts,Long contracts_sum,
-                           Collection<? extends GrantedAuthority> authorities) {
+    private Double contracts_sum;
+    public static double function1(Double contract_sum,Double minutes){ //идентификатор доступа, функция является статичной, тип возвращаемого значения, имя функции без параметров
+        double a = contract_sum;  //создаём переменную со значением
+        double b = minutes;
+        return a*b;  //возвращаем значение при вызове данной функции
+    }
+    private Double fac;
+    public UserDetailsImpl(Long id, String username, String password, Double account, Double minutes, String contracts, Double contracts_sum,
+                           Collection<? extends GrantedAuthority> authorities,Double fac) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.account=account;
+        this.minutes=minutes;
         this.contracts=contracts;
         this.contracts_sum=contracts_sum;
         this.authorities = authorities;
+        this.fac=fac;
     }
 
     public static UserDetailsImpl build(User user) {
@@ -49,13 +55,19 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getPassword(),
                 user.getAccount(),
+                user.getMinutes(),
                 user.getContract().getName(),
                 user.getContract().getSum(),
-                authorities);
+                authorities,
+                function1(user.getContract().getSum(),user.getMinutes()));
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
+    }
+
+    public Double getFac() {
+        return fac;
     }
 
     public Long getId() {
@@ -92,16 +104,19 @@ public class UserDetailsImpl implements UserDetails {
         return true;
     }
 
-    public Long getAccount() {
+    public Double getAccount() {
         return account;
     }
 
+    public Double getMinutes() {
+        return minutes;
+    }
 
     public String getContracts() {
         return contracts;
     }
 
-    public Long getContracts_sum() {
+    public Double getContracts_sum() {
         return contracts_sum;
     }
 

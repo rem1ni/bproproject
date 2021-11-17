@@ -46,7 +46,9 @@ export default class Profile extends Component {
           </p3>
           <p2>
           Contract{": "} <strong>{currentUser.contract}</strong><br></br>
-          Sum to pay{": "} <strong>{currentUser.contract_sum}</strong><br></br>
+          Tarrif{": "} <strong>{currentUser.contract_sum}</strong> <p5>per min</p5><br></br>
+          Minutes{": "} <strong>{currentUser.minutes}</strong><br></br>
+          Sum to pay{": "} <strong>{currentUser.fac}</strong><br></br>
           </p2>
           <br></br>
           <p2>

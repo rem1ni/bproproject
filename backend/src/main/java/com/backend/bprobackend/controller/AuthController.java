@@ -11,6 +11,7 @@ import com.backend.bprobackend.repository.RoleRepos;
 import com.backend.bprobackend.repository.UserRepos;
 import com.backend.bprobackend.response.MessageResponse;
 import com.backend.bprobackend.security.jwt.JwtUtils;
+import com.backend.bprobackend.security.service.PayDetailService;
 import com.backend.bprobackend.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -61,13 +62,16 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getAccount(),
+                userDetails.getMinutes(),
                 userDetails.getContracts(),
                 userDetails.getContracts_sum(),
-                roles));
+                roles,
+                userDetails.getFac()));
     }
 
     @PostMapping("/signup")
@@ -91,7 +95,8 @@ public class AuthController {
             user.setContract(userContract);
         }
         user.setRoles(roles);
-        user.setAccount(0L);
+        user.setAccount(0D);
+        user.setMinutes(0D);
         userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registered!"));
     }

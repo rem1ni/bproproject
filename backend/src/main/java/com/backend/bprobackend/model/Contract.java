@@ -12,7 +12,7 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private Long sum;
+    private Double sum;
 
 
     public Contract() {
@@ -31,11 +31,11 @@ public class Contract {
         this.name= name;
     }
 
-    public Long getSum() {
+    public Double getSum() {
         return sum;
     }
 
-    public void setSum(Long sum) {
+    public void setSum(Double sum) {
         this.sum = sum;
     }
 }
