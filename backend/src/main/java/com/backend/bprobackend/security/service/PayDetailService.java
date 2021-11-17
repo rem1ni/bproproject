@@ -27,16 +27,7 @@ public class PayDetailService {
                 summary);
     }
 
-    public Long getId() {
-        return id;
-    }
 
-
-
-
-    public Double getAccount() {
-        return account;
-    }
 
     public Double getMinutes() {
         return minutes;
