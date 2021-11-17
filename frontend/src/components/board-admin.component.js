@@ -28,6 +28,7 @@ export default class BoardAdmin extends React.Component {
                                 <th>Id </th>
                                 <th>username</th>
                                 <th>Balance</th>
+                                <th>Contract</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +39,10 @@ export default class BoardAdmin extends React.Component {
                                         <td>{user.id}</td>
                                         <td>{user.username}</td>
                                         <td>{user.account}</td>
+                                        <td><p2>
+          Contract name{": "} <strong>{user.contract.name}</strong><br></br>
+          Sum to pay{": "} <strong>{user.contract.sum}</strong><br></br>
+          </p2></td>
                                     </tr>
                                 )
                             }

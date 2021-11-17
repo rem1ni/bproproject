@@ -1,6 +1,7 @@
 package com.backend.bprobackend.repository;
 
 import com.backend.bprobackend.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
