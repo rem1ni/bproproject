@@ -13,9 +13,9 @@ const Balance = () => {
             .post("http://localhost:8080/bpro/userpay", {
                 i,
                 num
-            }).then(response => {
+            })
             window.location.assign('http://localhost:3000/profile');
-        })
+
     }
     return (
         <div className="container mt-5">
