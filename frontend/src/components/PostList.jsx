@@ -18,7 +18,6 @@ const PostList = ({posts,title}) => {
                     <PostItem  id={index + 1} post={post} key={post.id}/>
                 )}
             </div>
-
         </div>
     );
 };

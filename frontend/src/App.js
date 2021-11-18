@@ -10,6 +10,7 @@ import Profile from "./components/profile.component";
 import BoardAdmin from "./components/board-admin.component";
 import EventBus from "./common/EventBus";
 import Balance from "./components/Balance";
+import Story from "./components/Story";
 
 class App extends Component {
   constructor(props) {
@@ -128,6 +129,9 @@ class App extends Component {
             <Route path="/balance">
               <Balance/>
             </Route>
+              <Route path="/story">
+                  <Story/>
+              </Route>
           </Switch>
         </div>
 

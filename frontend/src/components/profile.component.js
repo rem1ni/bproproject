@@ -56,7 +56,7 @@ export default class Profile extends Component {
           {currentUser.roles && currentUser.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
           </p2>
           <div className="ml-auto" >
-            <Link to="/profile">История операций</Link>
+            <Link to="/story">История операций</Link>
           </div>
       </Card>: null}
       </Container>
