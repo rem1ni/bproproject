@@ -1,8 +1,5 @@
 package com.backend.bprobackend.response;
 
-import com.backend.bprobackend.model.Contract;
-import com.backend.bprobackend.security.service.PayDetailService;
-
 import java.util.List;
 
 

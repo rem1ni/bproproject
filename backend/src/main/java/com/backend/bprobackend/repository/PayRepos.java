@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PayRepos extends JpaRepository<Pay,Long> {
-    List<Pay> findByIduser(Long  id);
+    List<Pay> findByIduser(Long  iduser);
 
 
 }

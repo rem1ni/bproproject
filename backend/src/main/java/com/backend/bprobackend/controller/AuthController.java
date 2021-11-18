@@ -11,7 +11,6 @@ import com.backend.bprobackend.repository.RoleRepos;
 import com.backend.bprobackend.repository.UserRepos;
 import com.backend.bprobackend.response.MessageResponse;
 import com.backend.bprobackend.security.jwt.JwtUtils;
-import com.backend.bprobackend.security.service.PayDetailService;
 import com.backend.bprobackend.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

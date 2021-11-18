@@ -19,6 +19,10 @@ public class Pay {
         this.time = time;
     }
 
+    public Pay() {
+
+    }
+
     public Long getId() {
         return id;
     }
