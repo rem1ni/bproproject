@@ -4,7 +4,7 @@ const PostContract = (props) => {
     return (
         <div className="post">
             <div className="post_content">
-                <strong>{props.post.id}. {props.post.pay}</strong>
+                <strong>{props.post.id}. Sum: {props.post.pay}</strong>
                 <div>{props.post.time}</div>
             </div>
         </div>
