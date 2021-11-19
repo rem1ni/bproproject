@@ -20,7 +20,7 @@ public class PayInfoController {
 
     @PostMapping("/userpay/info")
     public ResponseEntity<?> PayInfoUser(@RequestBody PayInfoRequest payInfoRequest) {
-        List<Pay> pay=payRepos.findByIduser(payInfoRequest.getI());
+        List<Pay> pay=payRepos.findByIduser(payInfoRequest.getIduser());
         System.out.println(pay);
 
         return ResponseEntity.ok(pay);

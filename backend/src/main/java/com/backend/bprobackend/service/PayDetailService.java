@@ -17,7 +17,7 @@ import java.util.Objects;
 public class PayDetailService {
     @Autowired
     UserRepos userRepository;
-    String timetopay="19";
+    String timetopay="31";
 
     @Scheduled(fixedDelay = 60000)
     public void PayService1(){

@@ -1,14 +1,13 @@
 package com.backend.bprobackend.request;
 
 public class PayInfoRequest {
-    private Long i;
+    private Long iduser;
 
-
-    public Long getI() {
-        return i;
+    public Long getIduser() {
+        return iduser;
     }
 
-    public void setI(Long i) {
-        this.i = i;
+    public void setIduser(Long iduser) {
+        this.iduser = iduser;
     }
 }

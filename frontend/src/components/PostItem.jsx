@@ -8,7 +8,7 @@ const PostContract = (props) => {
             <div className="post_content">
                 <strong>{props.post.id}. {props.post.name}</strong>
                 <div>{props.post.sum}</div>
-                (currentUser.contract.id === {props.post.id}) ?
+                (idcontract === {props.post.id}) ?
                 <div>
                     Выбран данный тариф
                 </div>
