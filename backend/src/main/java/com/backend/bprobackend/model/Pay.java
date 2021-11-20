@@ -11,16 +11,26 @@ public class Pay {
 
     private Long iduser;
     private Double pay;
+    private Double balance;
     private String time;
 
-    public Pay(Long iduser, Double pay, String time) {
+    public Pay(Long iduser, Double pay,Double balance, String time) {
         this.iduser = iduser;
         this.pay = pay;
+        this.balance=balance;
         this.time = time;
     }
 
     public Pay() {
 
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 
     public Long getId() {

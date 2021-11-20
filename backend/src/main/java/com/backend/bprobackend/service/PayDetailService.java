@@ -1,6 +1,8 @@
 package com.backend.bprobackend.service;
 
+import com.backend.bprobackend.model.Pay;
 import com.backend.bprobackend.model.User;
+import com.backend.bprobackend.repository.PayRepos;
 import com.backend.bprobackend.repository.UserRepos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -17,9 +19,11 @@ import java.util.Objects;
 public class PayDetailService {
     @Autowired
     UserRepos userRepository;
-    String timetopay="31";
+    @Autowired
+    PayRepos payRepos;
+    String timetopay="20";
 
-    @Scheduled(fixedDelay = 60000)
+    @Scheduled(fixedDelay = 3600000)
     public void PayService1(){
         String time=new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
         Long count= userRepository.count();
@@ -27,16 +31,23 @@ public class PayDetailService {
         if (Objects.equals(timetopay,time)) {
             while (i <= count) {
                 User users = userRepository.getById(i);
-                if(users.getAccount()>-500.00D)
+                if(users.getAccount()>-500.00D && users.getMinutes()!=0)
                 {
-                users.setAccount(users.getAccount() - users.getMinutes() * users.getContract().getSum());
+                    Double sum= users.getMinutes() * users.getContract().getSum();
+                users.setAccount(users.getAccount() - sum);
                 users.setMinutes(0d);
                 userRepository.save(users);
+                sum=-1*sum;
+                    String timetopay=new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
+                    Pay pay = new Pay(i,sum,users.getAccount(),timetopay);
+                    payRepos.save(pay);
+                System.out.println(pay.getPay());
                     i++;
-                System.out.println("yes");}
+                }
                 else
                 {System.out.println("false");
-                    i++;}
+                    i++;
+                }
             }
         }
         System.out.println(timetopay+" "+time);

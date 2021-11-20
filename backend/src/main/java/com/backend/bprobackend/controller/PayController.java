@@ -36,8 +36,8 @@ public class PayController {
         User user=userRepository.getById(payRequest.getI());
         user.setAccount(payRequest.getNum()+ user.getAccount());
         userRepository.save(user);
-        String time=new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        Pay pay = new Pay(payRequest.getI(),payRequest.getNum(),time);
+        String time=new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        Pay pay = new Pay(payRequest.getI(),payRequest.getNum(),user.getAccount(),time);
         payRepos.save(pay);
 
         return ResponseEntity.ok("success");
