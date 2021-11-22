@@ -108,11 +108,6 @@ class App extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link to={"/contract"} className="nav-link">
-                  Contracts
-                </Link>
-              </li>
             </div>
           )}
         </nav>
