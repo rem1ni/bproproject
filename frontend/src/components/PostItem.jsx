@@ -13,8 +13,8 @@ function changeTar() {
             iduser,
             idcontract
         }).then(response => {
-            GetInfo(iduser);
-            window.location.reload();
+
+            window.location.assign('http://localhost:3000/profile')
         });
 
 }
