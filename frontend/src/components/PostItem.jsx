@@ -1,21 +1,42 @@
 import React from 'react';
 import AuthService from "../services/auth.service";
+import axios from "axios";
 const PostContract = (props) => {
-
     const currentUser = AuthService.getCurrentUser();
-    let idcontract = currentUser.contract.id;
+    let idcon = currentUser.contract_id;
+    let idcontract=props.post.id;
+    let iduser=currentUser.id;
+function changeTar() {
+
+    return axios
+        .post("http://localhost:8080/bpro/usercontract", {
+            idcontract,
+            iduser
+        })
+        .then(response => {
+            if (response.data.accessToken) {
+                localStorage.clear();
+                localStorage.setItem("user", JSON.stringify(response.data));
+            }
+                window.location.assign("http://localhost:3000/profile");
+        });
+
+}
     return (
         <div className="post">
             <div className="post_content">
                 <strong>{props.post.id}. {props.post.name}</strong>
                 <div>{props.post.sum}</div>
-                { (idcontract === props.post.id) ?
+                console.log();
+                { (idcon === idcontract) ?
                     (<div>
                     Выбран данный тариф
                 </div>)
                 :
-                    (<button
+                    (<button className="btn btn-success"
+                onClick= {() => {
 
+                } }
                 >
                     Выбрать
                 </button>)}
