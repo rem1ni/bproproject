@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthService from "../services/auth.service";
 import axios from "axios";
-import GetInfo from "./GetInfo";
+
 const PostContract = (props) => {
     const currentUser = AuthService.getCurrentUser();
     let idcon = currentUser.contract_id;
