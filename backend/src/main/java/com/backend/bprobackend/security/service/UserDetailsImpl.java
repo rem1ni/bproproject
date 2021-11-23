@@ -24,6 +24,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
     private  String contracts;
+    private Integer contracts_id;
     private Double contracts_sum;
     public static double function1(Double contract_sum,Double minutes){ //идентификатор доступа, функция является статичной, тип возвращаемого значения, имя функции без параметров
         double a = contract_sum;  //создаём переменную со значением
@@ -31,13 +32,14 @@ public class UserDetailsImpl implements UserDetails {
         return a*b;  //возвращаем значение при вызове данной функции
     }
     private Double fac;
-    public UserDetailsImpl(Long id, String username, String password, Double account, Double minutes, String contracts, Double contracts_sum,
+    public UserDetailsImpl(Long id, String username, String password, Double account, Double minutes,Integer contracts_id, String contracts, Double contracts_sum,
                            Collection<? extends GrantedAuthority> authorities,Double fac) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.account=account;
         this.minutes=minutes;
+        this.contracts_id=contracts_id;
         this.contracts=contracts;
         this.contracts_sum=contracts_sum;
         this.authorities = authorities;
@@ -56,6 +58,7 @@ public class UserDetailsImpl implements UserDetails {
                 user.getPassword(),
                 user.getAccount(),
                 user.getMinutes(),
+                user.getContract().getId(),
                 user.getContract().getName(),
                 user.getContract().getSum(),
                 authorities,
@@ -118,6 +121,14 @@ public class UserDetailsImpl implements UserDetails {
 
     public Double getContracts_sum() {
         return contracts_sum;
+    }
+
+    public Integer getContracts_id() {
+        return contracts_id;
+    }
+
+    public void setContracts_id(Integer contracts_id) {
+        this.contracts_id = contracts_id;
     }
 
     @Override

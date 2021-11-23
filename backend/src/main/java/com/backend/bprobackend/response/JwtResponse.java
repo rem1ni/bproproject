@@ -1,5 +1,6 @@
 package com.backend.bprobackend.response;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 
@@ -12,15 +13,17 @@ public class JwtResponse {
     private String username;
     private List<String> roles;
     private String contract;
+    private Integer contract_id;
     private Double contract_sum;
     private Double fac;
 
-    public JwtResponse(String accessToken, Long id, String username, Double account, Double minutes, String contract, Double contract_sum, List<String> roles,Double fac) {
+    public JwtResponse(String accessToken, Long id, String username, Double account, Double minutes, Integer contract_id, String contract, Double contract_sum, List<String> roles, Double fac) {
         this.token = accessToken;
         this.id = id;
         this.account=account;
         this.minutes=minutes;
         this.username = username;
+        this.contract_id=contract_id;
         this.contract=contract;
         this.contract_sum=contract_sum;
         this.roles = roles;
@@ -107,5 +110,11 @@ public class JwtResponse {
         this.token = token;
     }
 
+    public Integer getContract_id() {
+        return contract_id;
+    }
 
+    public void setContract_id(Integer contract_id) {
+        this.contract_id = contract_id;
+    }
 }

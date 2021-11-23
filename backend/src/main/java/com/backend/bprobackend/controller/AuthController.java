@@ -66,6 +66,7 @@ public class AuthController {
                 userDetails.getUsername(),
                 userDetails.getAccount(),
                 userDetails.getMinutes(),
+                userDetails.getContracts_id(),
                 userDetails.getContracts(),
                 userDetails.getContracts_sum(),
                 roles,
