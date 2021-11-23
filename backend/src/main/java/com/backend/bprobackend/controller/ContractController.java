@@ -26,9 +26,13 @@ public class ContractController {
     @PostMapping("/usercontract")
     public ResponseEntity<?> PayUser(@RequestBody ContractRequest contractRequestRequest) {
         User user=userRepository.getById(contractRequestRequest.getIduser());
-        Contract contract=contractRepository.getById(contractRequestRequest.getIdcontract());
-        user.setContract(contract);
-        userRepository.save(user);
-        return ResponseEntity.ok("success");
+        if (user.getMinutes()==0d) {
+            Contract contract = contractRepository.getById(contractRequestRequest.getIdcontract());
+            user.setContract(contract);
+            userRepository.save(user);
+            return ResponseEntity.ok("success");
+        }
+        else
+            return ResponseEntity.ok("fail");
     }
 }
