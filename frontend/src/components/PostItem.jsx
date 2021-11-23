@@ -8,8 +8,15 @@ const PostContract = (props) => {
     let idcontract=props.post.id;
     let iduser=currentUser.id;
 function changeTar() {
-    GetInfo(iduser);
-    window.location.reload();
+    return axios
+        .post("http://localhost:8080/bpro/usercontract", {
+            iduser,
+            idcontract
+        }).then(response => {
+            GetInfo(iduser);
+            window.location.reload();
+        });
+
 }
     return (
         <div className="post">

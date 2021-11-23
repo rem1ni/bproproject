@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axois';
+import axios from "axios";
 const GetInfo = (iduser) => {
 
     return axios
@@ -7,9 +7,7 @@ const GetInfo = (iduser) => {
             iduser
         })
         .then(response => {
-
                 localStorage.setItem("user", JSON.stringify(response.data));
-
         });
 };
 
