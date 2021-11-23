@@ -7,6 +7,7 @@ const GetInfo = (iduser) => {
             iduser
         })
         .then(response => {
+                localStorage.clear();
                 localStorage.setItem("user", JSON.stringify(response.data));
         });
 };
