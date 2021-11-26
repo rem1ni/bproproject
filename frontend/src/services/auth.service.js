@@ -28,7 +28,18 @@ class AuthService {
       password
     });
   }
+    refresh(iduser){
+        return axios
+            .post("http://localhost:3000/info", {
+                iduser
+            })
+            .then(response => {
 
+                    localStorage.setItem("userdata", JSON.stringify(response.data));
+
+                return JSON.parse(localStorage.getItem('userdata'));;
+            });
+    }
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));;
   }
