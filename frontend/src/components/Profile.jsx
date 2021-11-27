@@ -10,8 +10,8 @@ import {UseFetching} from "../UseFetching";
   const [stat,setStat]=useState([]);
   const [fetchPosts, isPostsLoading, postError] = UseFetching(async () => {
     const currentUser1 = AuthService.getCurrentUser();
-    let iduser= currentUser1.id;
-    setStat(currentUser1);
+      setStat(currentUser1);
+    let iduser= stat.id;
     const currentUser = AuthService.refresh(iduser);
     setInfo(currentUser);
   })

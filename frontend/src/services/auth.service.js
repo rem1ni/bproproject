@@ -34,7 +34,6 @@ class AuthService {
                 iduser
             })
             .then(response => {
-                
                     return (response.data);
             });
     }
