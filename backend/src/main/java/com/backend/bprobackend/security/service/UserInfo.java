@@ -21,7 +21,6 @@ public class UserInfo {
 
 
 
-    private Collection<? extends GrantedAuthority> authorities;
     private  String contracts;
     private Integer contracts_id;
     private Double contracts_sum;
@@ -32,7 +31,7 @@ public class UserInfo {
     }
     private Double fac;
     public UserInfo(Long id, String username, Double account, Double minutes,Integer contracts_id, String contracts, Double contracts_sum,
-                           Collection<? extends GrantedAuthority> authorities,Double fac) {
+                           Double fac) {
         this.id = id;
         this.username = username;
         this.account=account;
@@ -40,7 +39,6 @@ public class UserInfo {
         this.contracts_id=contracts_id;
         this.contracts=contracts;
         this.contracts_sum=contracts_sum;
-        this.authorities = authorities;
         this.fac=fac;
     }
 
@@ -58,13 +56,9 @@ public class UserInfo {
                 user.getContract().getId(),
                 user.getContract().getName(),
                 user.getContract().getSum(),
-                authorities,
                 function1(user.getContract().getSum(),user.getMinutes()));
     }
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
 
     public Double getFac() {
         return fac;

@@ -30,7 +30,7 @@ class AuthService {
   }
     refresh(iduser){
         return axios
-            .post("http://localhost:3000/info", {
+            .post("http://localhost:8080/info", {
                 iduser
             })
             .then(response => {

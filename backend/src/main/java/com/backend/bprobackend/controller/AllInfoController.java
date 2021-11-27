@@ -18,19 +18,17 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/bpro")
+@RequestMapping("")
 public class AllInfoController {
     @Autowired
     UserRepos userRepository;
 
-    @PostMapping("/allinfo")
+    @PostMapping("/info")
     public ResponseEntity<?> PayUser(@RequestBody AllInfoRequest allInfoRequest) {
         User user=userRepository.getById(allInfoRequest.getIduser());
-        List<GrantedAuthority> roles = user.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
-                .collect(Collectors.toList());
 
-        UserInfo info=new UserInfo(user.getId(),user.getUsername(),user.getAccount(),user.getMinutes(),user.getContract().getId(),user.getContract().getName(),user.getContract().getSum(),roles,user.getMinutes()*user.getContract().getSum());
+
+        UserInfo info=new UserInfo(user.getId(),user.getUsername(),user.getAccount(),user.getMinutes(),user.getContract().getId(),user.getContract().getName(),user.getContract().getSum(),user.getMinutes()*user.getContract().getSum());
         return ResponseEntity.ok(info);
     }
 }
