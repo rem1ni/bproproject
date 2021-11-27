@@ -22,7 +22,7 @@ export default class Profile extends Component {
     const currentUser1 = AuthService.getCurrentUser();
     let iduser= currentUser1.id;
     this.ref(iduser);
-    this.timer = setInterval( ()=>this.ref(iduser),5000)
+    this.timer = setInterval( ()=>this.ref(iduser),30000)
   }
 componentWillUnmount() {
     this.timer=null;
