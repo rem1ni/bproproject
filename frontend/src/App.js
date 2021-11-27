@@ -6,7 +6,7 @@ import Start from "./components/Start.jsx";
 import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-import Profile from "./components/profile.component";
+import Profile from "./components/Profile";
 import BoardAdmin from "./components/board-admin.component";
 import EventBus from "./common/EventBus";
 import Balance from "./components/Balance";
