@@ -34,14 +34,12 @@ class AuthService {
                 iduser
             })
             .then(response => {
-
-                    localStorage.setItem("userdata", JSON.stringify(response.data));
-
-                return JSON.parse(localStorage.getItem('userdata'));;
+                
+                    return (response.data);
             });
     }
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(localStorage.getItem('user'));
   }
 }
 
