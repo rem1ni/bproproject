@@ -116,7 +116,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile">
+              <Profile/>
+            </Route>
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/contract">
               <Start/>
