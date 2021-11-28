@@ -1,9 +1,9 @@
-import React, {Component, useLayoutEffect, useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import AuthService from "../services/auth.service";
 import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
-import {UseFetching} from "../UseFetching";
+
 
  const Profile = () => {
   const [info,setInfo]=useState([]);
