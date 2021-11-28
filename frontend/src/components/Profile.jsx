@@ -3,7 +3,7 @@ import AuthService from "../services/auth.service";
 import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
-
+import axios from "axios";
 
  const Profile = () => {
   const [info,setInfo]=useState([]);
@@ -12,8 +12,13 @@ import {Card} from "react-bootstrap";
       const currentUser1 = AuthService.getCurrentUser();
       setStat(currentUser1);
       let iduser= stat.id;
-      const currentUser = AuthService.refresh(iduser);
-      setInfo(currentUser);
+      axios
+          .post("http://localhost:8080/info", {
+              iduser
+          })
+          .then(response => {
+              setInfo(response.data);
+          });
      }
 
   useLayoutEffect(() => {
