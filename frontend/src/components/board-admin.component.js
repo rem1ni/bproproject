@@ -39,7 +39,7 @@ export default class BoardAdmin extends React.Component {
                                 <th>Balance</th>
                                 <th>Minutes</th>
                                 <th>Contract</th>
-                                <th>Role </th>
+                                <th>Delete </th>
                             </tr>
                         </thead>
                         <tbody>
