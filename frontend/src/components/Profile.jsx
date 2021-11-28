@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState} from "react";
+import React, {Component, useLayoutEffect, useState} from "react";
 import AuthService from "../services/auth.service";
 import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
@@ -8,16 +8,18 @@ import {UseFetching} from "../UseFetching";
  const Profile = () => {
   const [info,setInfo]=useState([]);
   const [stat,setStat]=useState([]);
-  const [fetchPosts, isPostsLoading, postError] = UseFetching(async () => {
-    const currentUser1 = AuthService.getCurrentUser();
+  function refr () {
+      const currentUser1 = AuthService.getCurrentUser();
       setStat(currentUser1);
-    let iduser= stat.id;
-    const currentUser = AuthService.refresh(iduser);
-    setInfo(currentUser);
-  })
-  useEffect(() => {
-    fetchPosts()
+      let iduser= stat.id;
+      const currentUser = AuthService.refresh(iduser);
+      setInfo(currentUser);
+     }
+
+  useLayoutEffect(() => {
+    refr()
   }, [])
+
   return (
       <Container
           className="d-flex justify-content-center align-items-center"

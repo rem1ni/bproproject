@@ -34,7 +34,7 @@ class AuthService {
                 iduser
             })
             .then(response => {
-                    return (response.data);
+                    return response.data;
             });
     }
   getCurrentUser() {
