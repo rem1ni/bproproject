@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 import UserService from '../services/user.service';
 
 export default class BoardAdmin extends React.Component {
+    del(iduser){
+        return axios
+            .post("http://localhost:8080/delete", {
+                iduser
+            })
+            .then(response => {
+                window.location.reload();
+            });
+    }
 
     constructor(props) {
         super(props)
@@ -30,6 +39,7 @@ export default class BoardAdmin extends React.Component {
                                 <th>Balance</th>
                                 <th>Minutes</th>
                                 <th>Contract</th>
+                                <th>Role </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,8 +55,12 @@ export default class BoardAdmin extends React.Component {
           Contract name{": "} <strong>{user.contract.name}</strong><br></br>
           Sum to pay{": "} <strong>{user.contract.sum}</strong><br></br>
           </p2></td>
+                                        <td>
+                                            <button onClick={this.del(user.id)}>Delete</button>
+                                        </td>
                                     </tr>
                                 )
+
                             }
                         </tbody>
                     </table>
