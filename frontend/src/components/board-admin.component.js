@@ -3,7 +3,7 @@ import UserService from '../services/user.service';
 import axios from "axios";
 export default class BoardAdmin extends React.Component {
     del(iduser){
-        return axios
+         axios
             .post("http://localhost:8080/bpro/delete", {
                 iduser
             })
@@ -56,7 +56,7 @@ export default class BoardAdmin extends React.Component {
           Sum to pay{": "} <strong>{user.contract.sum}</strong><br></br>
           </p2></td>
                                         <td>
-                                            <button onClick={this.del(user.id)}>Delete</button>
+                                            <button onClick={() => this.del(user.id)}>Delete</button>
                                         </td>
                                     </tr>
                                 )
