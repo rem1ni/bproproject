@@ -42,9 +42,9 @@ import axios from "axios";
             Balance: <strong>{info.account}</strong><br></br>
           </p3>
           <p2>
-            Contract_id{": "} <strong>{info.contract_id}</strong><br></br>
-            Contract{": "} <strong>{info.contract}</strong><br></br>
-            Tarrif{": "} <strong>{info.contract_sum}</strong> <p5>per min</p5><br></br>
+            Contract_id{": "} <strong>{info.contracts_id}</strong><br></br>
+            Contract{": "} <strong>{info.contracts}</strong><br></br>
+            Tarrif{": "} <strong>{info.contracts_sum}</strong> <p5>per min</p5><br></br>
             Minutes{": "} <strong>{info.minutes}</strong><br></br>
             Sum to pay{": "} <strong>{info.fac}</strong><br></br>
           </p2>

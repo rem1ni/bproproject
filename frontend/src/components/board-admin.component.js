@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UserService from '../services/user.service';
-
+import axios from "axios";
 export default class BoardAdmin extends React.Component {
     del(iduser){
         return axios
