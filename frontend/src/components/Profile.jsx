@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import AuthService from "../services/auth.service";
 import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
@@ -18,12 +18,11 @@ import axios from "axios";
           })
           .then(response => {
               setInfo(response.data);
-              console.log(iduser)
           });
      }
 
-  useLayoutEffect(() => {
-    refr()
+  useEffect(() => {
+    return()=>{ refr()}
   }, [])
 
   return (
