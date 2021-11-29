@@ -11,7 +11,7 @@ import axios from "axios";
   function refr () {
       const currentUser1 = AuthService.getCurrentUser();
       setStat(currentUser1);
-      let iduser= stat.id;
+      let iduser= currentUser1.id;
       axios
           .post("http://localhost:8080/info", {
               iduser
