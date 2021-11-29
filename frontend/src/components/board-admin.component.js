@@ -4,7 +4,7 @@ import axios from "axios";
 export default class BoardAdmin extends React.Component {
     del(iduser){
         return axios
-            .post("http://localhost:8080/delete", {
+            .post("http://localhost:8080/bpro/delete", {
                 iduser
             })
             .then(response => {
