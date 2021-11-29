@@ -22,7 +22,7 @@ import axios from "axios";
      }
 
   useEffect(() => {
-      setTimeout(()=>{ refr()},10000)
+      setTimeout(()=>{ refr()},100)
   }, [])
 
   return (
