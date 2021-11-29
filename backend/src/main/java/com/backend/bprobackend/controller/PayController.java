@@ -33,17 +33,23 @@ public class PayController {
 
     @PostMapping("/userpay")
     public ResponseEntity<?> PayUser(@RequestBody PayRequest payRequest) {
-        if (payRequest.getNum()<=10000) {
-            User user = userRepository.getById(payRequest.getI());
-            user.setAccount(payRequest.getNum() + user.getAccount());
-            userRepository.save(user);
-            String time = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
-            Pay pay = new Pay(payRequest.getI(), payRequest.getNum(), user.getAccount(), time);
-            payRepos.save(pay);
+        int a = (int) ( Math.random() * 3 );
+        System.out.println(a);
+        if (a==0) {
+            if (payRequest.getNum() <= 10000 && payRequest.getNum() >= 1) {
+                User user = userRepository.getById(payRequest.getI());
+                user.setAccount(payRequest.getNum() + user.getAccount());
+                userRepository.save(user);
+                String time = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
+                Pay pay = new Pay(payRequest.getI(), payRequest.getNum(), user.getAccount(), time);
+                payRepos.save(pay);
 
-            return ResponseEntity.ok("success");
+                return ResponseEntity.ok("Payment successfully completed");
+            }
+            else {ResponseEntity.ok("Wrong sum");}
         }
         else
-        {return ResponseEntity.ok("fail");}
+        {if(a==1) {return ResponseEntity.ok("Insufficient funds");} else {if(a==2) ResponseEntity.ok("No connection with the bank"); }}
+        return ResponseEntity.ok("Ooops");
     }
 }
