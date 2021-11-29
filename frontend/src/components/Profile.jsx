@@ -18,6 +18,7 @@ import axios from "axios";
           })
           .then(response => {
               setInfo(response.data);
+              console.log(iduser)
           });
      }
 
@@ -32,7 +33,7 @@ import axios from "axios";
         <Card style={{width:400}} className="p-5">
           <p1 align="center">
             Id{ ":"}
-            <strong> {info.id} </strong>
+            <strong> {stat.id} </strong>
           </p1>
           <p1 align="center">
             Username: <strong>{info.username}</strong><br></br>
