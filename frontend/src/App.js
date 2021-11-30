@@ -11,6 +11,7 @@ import BoardAdmin from "./components/board-admin.component";
 import EventBus from "./common/EventBus";
 import Balance from "./components/Balance";
 import Story from "./components/Story";
+import Edit from "./components/MyModal";
 
 class App extends Component {
   constructor(props) {
@@ -130,6 +131,9 @@ class App extends Component {
               <Route path="/story">
                   <Story/>
               </Route>
+            <Route path="/edit">
+              <Edit/>
+            </Route>
           </Switch>
         </div>
 
