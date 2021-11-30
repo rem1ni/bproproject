@@ -10,7 +10,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
 
 @EnableScheduling
@@ -21,27 +23,28 @@ public class PayDetailService {
     UserRepos userRepository;
     @Autowired
     PayRepos payRepos;
-    String timetopay="20";
+    String timetopay="30";
 
     @Scheduled(fixedDelay = 3600000)
     public void PayService1(){
         String time=new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
-        Long count= userRepository.count();
-        Long i =1l;
+        List<User> users=  userRepository.findAll();
+        int i =0;
+        Long count = userRepository.count();
+        System.out.println(count);
         if (Objects.equals(timetopay,time)) {
-            while (i <= count) {
-                User users = userRepository.getById(i);
-                if(users.getAccount()>-500.00D && users.getMinutes()!=0)
-                {
-                    Double sum= users.getMinutes() * users.getContract().getSum();
-                users.setAccount(users.getAccount() - sum);
-                users.setMinutes(0d);
-                userRepository.save(users);
-                sum=-1*sum;
-                    String timetopay=new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
-                    Pay pay = new Pay(i,sum,users.getAccount(),timetopay);
+            while (i < count) {
+                User user= users.get(i);
+                if (user.getAccount()>-500.00D && user.getMinutes()!=0) {
+                    Double sum = user.getMinutes() * user.getContract().getSum();
+                    user.setAccount(user.getAccount() - sum);
+                    user.setMinutes(0d);
+                    userRepository.save(user);
+                    sum = -1 * sum;
+                    String timetopay = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
+                    Pay pay = new Pay(user.getId(), sum, user.getAccount(), timetopay);
                     payRepos.save(pay);
-                System.out.println(pay.getPay());
+                    System.out.println(pay.getPay());
                     i++;
                 }
                 else
