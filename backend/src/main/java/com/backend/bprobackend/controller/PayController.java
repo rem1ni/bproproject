@@ -50,6 +50,6 @@ public class PayController {
         }
         else
         {if(a==1) {return ResponseEntity.ok("Insufficient funds");} else {if(a==2) ResponseEntity.ok("No connection with the bank"); }}
-        return ResponseEntity.ok("Ooops");
+        return ResponseEntity.ok("No connection with the bank");
     }
 }
