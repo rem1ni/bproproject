@@ -34,7 +34,6 @@ public class PayController {
     @PostMapping("/userpay")
     public ResponseEntity<?> PayUser(@RequestBody PayRequest payRequest) {
         int a = (int) ( Math.random() * 3 );
-        System.out.println(a);
         if (a==0) {
             if (payRequest.getNum() <= 10000 && payRequest.getNum() >= 1) {
                 User user = userRepository.getById(payRequest.getI());
