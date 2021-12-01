@@ -12,7 +12,7 @@ const PostContract = (props) => {
     let idcontract=props.post.id;
     let iduser=currentUser.id;
     const[emp,setEmp]=useState(false);
-    setEmp(currentUser.roles.includes("ROLE_EMPLOYEE"));
+
 
 function changeTar() {
     return axios
@@ -29,7 +29,7 @@ function changeTar() {
         let title = newPost.title;
         let body = newPost.body;
         axios
-            .post("http://localhost:8080/edit", {
+            .post("http://localhost:8080/bpro/edit", {
                 idcontract,
                 title,
                 body
@@ -53,14 +53,14 @@ function changeTar() {
                     Выбрать
                 </button>)}
 
-                { (emp===true) ? (<button className="btn btn-success"
+                 <button className="btn btn-success"
                                           onClick={() => setModal(true)}
                 >
-                    Выбрать
+                    Редактировать
                 </button>
-                ): <div/>
+               
 
-                }
+                
             </div>
             <MyModal visible={modal} setVisible={setModal}>
                 <PostForm create={addEdit}/>

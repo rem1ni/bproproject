@@ -7,6 +7,7 @@ import com.backend.bprobackend.repository.ContractRepos;
 import com.backend.bprobackend.repository.PayRepos;
 import com.backend.bprobackend.repository.UserRepos;
 import com.backend.bprobackend.request.ContractRequest;
+import com.backend.bprobackend.request.EditRequest;
 import com.backend.bprobackend.request.PayRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class ContractController {
     @Autowired
     ContractRepos contractRepository;
     @PostMapping("/usercontract")
-    public ResponseEntity<?> PayUser(@RequestBody ContractRequest contractRequestRequest) {
+    public ResponseEntity<?> ContractUser(@RequestBody ContractRequest contractRequestRequest) {
         User user=userRepository.getById(contractRequestRequest.getIduser());
         if (user.getMinutes()==0d) {
             Contract contract = contractRepository.getById(contractRequestRequest.getIdcontract());
@@ -35,4 +36,12 @@ public class ContractController {
         else
             return ResponseEntity.ok("fail");
     }
+    @PostMapping("/edit")
+    public ResponseEntity<?> ContractEdit(@RequestBody EditRequest editRequest) {
+        Contract contract=contractRepository.getById(editRequest.getIdcontract());
+        contract.setName(editRequest.getTitle());
+        contract.setSum(editRequest.getBody());
+        contractRepository.save(contract);
+            return ResponseEntity.ok("success");
+        }
 }

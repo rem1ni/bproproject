@@ -9,7 +9,6 @@ const PostList = ({posts,title}) => {
             </h1>
         )
     }
-    delete posts[0];
     return (
         <div >
             <h1 style={{textAlign:'center'}}>{title}</h1>
