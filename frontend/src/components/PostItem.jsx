@@ -11,10 +11,8 @@ const PostContract = (props) => {
     let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
     let iduser=currentUser.id;
-    const[emp,setEmp]=useState(false);
-    if ( currentUser.roles.includes("ROLE_EMPLOYEE") ) {
-        setEmp(true)
-    }
+
+
 
 
 function changeTar() {
@@ -58,7 +56,7 @@ function changeTar() {
 
 
                 {
-                    (emp === true)?
+                    (currentUser.roles.includes("ROLE_EMPLOYEE") === true)?
                         (
                             <button className="btn btn-success"
                                     onClick={() => setModal(true)}
