@@ -7,10 +7,19 @@ import PostForm from "./PostForm";
 
 const PostContract = (props) => {
     const [modal, setModal] = useState(false);
-    const currentUser = AuthService.getCurrentUser();
+    const currentUser1 = AuthService.getCurrentUser();
+    let currentUser=[];
+    let iduser=currentUser1.id;
+     axios
+        .post("http://localhost:8080/info", {
+            iduser
+        })
+        .then(response => {
+             currentUser=(response.data);
+        });
     let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
-    let iduser=currentUser.id;
+    
 
 
 
