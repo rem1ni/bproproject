@@ -5,15 +5,21 @@ import AuthService from "../services/auth.service";
 
 const Balance = () => {
     const [sum,setSum]=useState('');
+    const[mes,setMes] = useState("");
     function Send() {
         let num = Number(sum);
         const currentUser = AuthService.getCurrentUser();
         let i = currentUser.id;
+
+
         return axios
             .post("http://localhost:8080/bpro/userpay", {
                 i,
                 num
-            })
+            }).then(response => {
+                setMes(response.data);
+
+            });
     }
     return (
         <div className="container mt-5">
@@ -79,6 +85,7 @@ const Balance = () => {
                     </div>
                 </div>
             </div>
+            {mes}
         </div>
     );
 };
