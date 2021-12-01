@@ -24,7 +24,15 @@ const PostContract = (props) => {
             });
     }
     useEffect(() => {
-        setTimeout(setCur(refresh(iduser)),100)
+        const currentUser1 = AuthService.getCurrentUser();
+        let iduser=currentUser1.id;
+        axios
+            .post("http://localhost:8080/info", {
+                iduser
+            })
+            .then(response => {
+                setCur(response.data);
+            });
     }, [])
 
 
