@@ -9,11 +9,12 @@ const PostContract = (props) => {
     const [modal, setModal] = useState(false);
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;
-    const currentUser = refresh(iduser);
+    const [cur,setCur]=useState([]);
+    const currentUser = cur;
     let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
 
-   function refresh(iduser){
+    function refresh(iduser){
         return axios
             .post("http://localhost:8080/info", {
                 iduser
@@ -22,7 +23,9 @@ const PostContract = (props) => {
                 return response.data;
             });
     }
-
+    useEffect(() => {
+        setTimeout(setCur(refresh(iduser)),100)
+    }, [])
 
 
 function changeTar() {
