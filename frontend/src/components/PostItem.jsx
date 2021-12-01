@@ -10,21 +10,20 @@ const PostContract = (props) => {
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;
     const [cur,setCur]=useState([]);
+    axios
+        .post("http://localhost:8080/info", {
+            iduser
+        })
+        .then(response => {
+            setCur(response.data);
+        });
     const currentUser = cur;
     let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
-    
-    useEffect(() => {
-        const currentUser1 = AuthService.getCurrentUser();
-        let iduser=currentUser1.id;
-        axios
-            .post("http://localhost:8080/info", {
-                iduser
-            })
-            .then(response => {
-                setCur(response.data);
-            });
-    }, [])
+
+
+
+
 
 
 function changeTar() {
