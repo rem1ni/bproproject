@@ -9,11 +9,19 @@ const PostContract = (props) => {
     const [modal, setModal] = useState(false);
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;
-    const currentUser = AuthService.refresh(iduser);
+    const currentUser = refresh(iduser);
     let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
 
-
+   function refresh(iduser){
+        return axios
+            .post("http://localhost:8080/info", {
+                iduser
+            })
+            .then(response => {
+                return response.data;
+            });
+    }
 
 
 

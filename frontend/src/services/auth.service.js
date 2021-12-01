@@ -28,15 +28,7 @@ class AuthService {
       password
     });
   }
-    refresh(iduser){
-        return axios
-            .post("http://localhost:8080/info", {
-                iduser
-            })
-            .then(response => {
-                    return response.data;
-            });
-    }
+
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));
   }
