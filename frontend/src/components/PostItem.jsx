@@ -10,15 +10,16 @@ const PostContract = (props) => {
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;
     const [cur,setCur]=useState([]);
-    axios
-        .post("http://localhost:8080/info", {
+   function ref(iduser){
+       axios.post("http://localhost:8080/info", {
             iduser
         })
         .then(response => {
             setCur(response.data);
-        });
-    const currentUser = cur;
-    let idcon = currentUser1.contract_id;
+        })}
+        setCur(ref);
+    const currentUser = cur[0];
+    let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
 
 
