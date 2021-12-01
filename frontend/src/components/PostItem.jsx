@@ -12,6 +12,9 @@ const PostContract = (props) => {
     let idcontract=props.post.id;
     let iduser=currentUser.id;
     const[emp,setEmp]=useState(false);
+    if ( currentUser.roles.includes("ROLE_EMPLOYEE") ) {
+        setEmp(true)
+    }
 
 
 function changeTar() {
@@ -58,7 +61,12 @@ function changeTar() {
                 >
                     Редактировать
                 </button>
-               
+                {
+                    (emp === true)?
+                        (
+                            <button>Редактировать</button>
+                        ): (<div/>)
+                }
 
                 
             </div>
