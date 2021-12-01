@@ -18,7 +18,7 @@ const PostContract = (props) => {
             setCur(response.data);
         });
     const currentUser = cur;
-    let idcon = currentUser.contract_id;
+    let idcon = currentUser1.contract_id;
     let idcontract=props.post.id;
 
 
