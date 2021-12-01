@@ -56,15 +56,15 @@ function changeTar() {
                     Выбрать
                 </button>)}
 
-                 <button className="btn btn-success"
-                                          onClick={() => setModal(true)}
-                >
-                    Редактировать
-                </button>
+
                 {
                     (emp === true)?
                         (
-                            <button>Редактировать</button>
+                            <button className="btn btn-success"
+                                    onClick={() => setModal(true)}
+                            >
+                                Редактировать
+                            </button>
                         ): (<div/>)
                 }
 
