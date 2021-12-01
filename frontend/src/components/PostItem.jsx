@@ -13,16 +13,7 @@ const PostContract = (props) => {
     const currentUser = cur;
     let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
-
-    function refresh(iduser){
-        return axios
-            .post("http://localhost:8080/info", {
-                iduser
-            })
-            .then(response => {
-                return response.data;
-            });
-    }
+    
     useEffect(() => {
         const currentUser1 = AuthService.getCurrentUser();
         let iduser=currentUser1.id;
