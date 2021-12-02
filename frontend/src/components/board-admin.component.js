@@ -39,6 +39,7 @@ export default class BoardAdmin extends React.Component {
                                 <th>Balance</th>
                                 <th>Minutes</th>
                                 <th>Contract</th>
+                                <th>Add minutes</th>
                                 <th>Delete </th>
                             </tr>
                         </thead>
@@ -55,6 +56,13 @@ export default class BoardAdmin extends React.Component {
           Contract name{": "} <strong>{user.contract.name}</strong><br></br>
           Sum to pay{": "} <strong>{user.contract.sum}</strong><br></br>
           </p2></td>
+                                        <td>
+                                            <form>
+                                                <input type="number"  className="form-control" placeholder="Минуты" />
+                                                <button>Отправить</button>
+                                            </form>
+
+                                        </td>
                                         <td>
                                             <button onClick={()=> this.del(user.id)}>Delete</button>
                                         </td>
