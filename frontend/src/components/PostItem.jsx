@@ -23,7 +23,6 @@ function changeTar() {
             let i = AuthService.ref(iduser);
             window.location.assign('http://localhost:3000/profile')
         });
-
 }
     const addEdit = (newPost) => {
         let title = newPost.title;

@@ -2,8 +2,11 @@ import React,{useState} from 'react';
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
-
+import $ from 'jquery';
 const Balance = () => {
+    $('body').on('input', '.input-number', function(){
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
     const [sum,setSum]=useState('');
     const[mes,setMes] = useState("");
     function Send() {
@@ -38,7 +41,7 @@ const Balance = () => {
 
                                 <div className="row ">
                                     <div className="col-md-12">
-                                        <input type="number" className="form-control" placeholder="Card Number" />
+                                        <input type="text" className="input-number"  placeholder="Card Number" />
                                     </div>
                                 </div>
 
