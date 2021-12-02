@@ -90,8 +90,8 @@ const Balance = () => {
                             </div>
                         </div>
                     </div>
+                    {mes}
                 </div>
-                {mes}
             </div>
         </div>
     );
