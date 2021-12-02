@@ -7,19 +7,7 @@ import PostForm from "./PostForm";
 
 const PostContract = (props) => {
     const [modal, setModal] = useState(false);
-    function ref(iduser){
-        axios.post("http://localhost:8080/info", {
-            iduser
-        })
-        .then(response => {
-            return (response.data);
-        })}
-    useEffect(() => {
-        const currentUser1 = AuthService.getCurrentUser();
-        let iduser=currentUser1.id;
-        const currentUser =  ref(iduser);
-        localStorage.setItem("myKey",JSON.stringify(currentUser.contract_id));
-    }, [])
+
     let idcon = JSON.parse(localStorage.getItem("myKey"));
     let idcontract=props.post.id;
     const currentUser1 = AuthService.getCurrentUser();
@@ -66,7 +54,7 @@ function changeTar() {
 
 
                 {
-                    (currentUser.roles.includes("ROLE_EMPLOYEE") === true)?
+                    (currentUser1.roles.includes("ROLE_EMPLOYEE") === true)?
                         (
                             <button className="btn btn-success"
                                     onClick={() => setModal(true)}
