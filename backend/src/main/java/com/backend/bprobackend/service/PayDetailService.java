@@ -31,7 +31,6 @@ public class PayDetailService {
         List<User> users=  userRepository.findAll();
         int i =0;
         Long count = userRepository.count();
-        System.out.println(count);
         if (Objects.equals(timetopay,time)) {
             while (i < count) {
                 User user= users.get(i);
@@ -44,7 +43,6 @@ public class PayDetailService {
                     String timetopay = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
                     Pay pay = new Pay(user.getId(), sum, user.getAccount(), timetopay);
                     payRepos.save(pay);
-                    System.out.println(pay.getPay());
                     i++;
                 }
                 else
@@ -53,6 +51,6 @@ public class PayDetailService {
                 }
             }
         }
-        System.out.println(timetopay+" "+time);
+        System.out.println("Time to pay: "+timetopay+" Real time: "+time);
     }
 }
