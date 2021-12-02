@@ -35,7 +35,7 @@ const Balance = () => {
         <div className="container mt-5">
             <div className="col-md-4 col-md-offset-4  p-3 m-lg-auto">
                 Введите сумму пополнения:
-                <input type="number" className="form-control mt-2" placeholder="Сумма"
+                <input className="input-range form-control mt-2" type="text" data-min="0" data-max="10000" placeholder="Сумма"
                        value={sum}
                        onChange={e => setSum(e.target.value)}
                 />
@@ -55,11 +55,11 @@ const Balance = () => {
                                 <div className="row ">
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <span className="help-block text-muted small-font"> Month</span>
-                                        <input type="number"  className="form-control" placeholder="MM"/>
+                                        <input className="input-range form-control" type="text" data-min="0" data-max="12" placeholder="MM"/>
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <span className="help-block text-muted small-font"> Year</span>
-                                        <input type="number" className="form-control" placeholder="YY"/>
+                                        <input className="input-range form-control" type="text" data-min="0" data-max="12" placeholder="YY"/>
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <img src="https://bootstraptema.ru/snippets/form/2016/form-card/card.png"
@@ -67,7 +67,7 @@ const Balance = () => {
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <span className="help-block text-muted small-font"> CVV</span>
-                                        <input type="password" className="form-control" placeholder="CVV"/>
+                                        <input type="password" className="input-range form-control" data-min="0" data-max="999" placeholder="CVV"/>
                                     </div>
                                 </div>
 
@@ -79,9 +79,6 @@ const Balance = () => {
                                 </div>
 
                                 <div className="row mt-3">
-                                    <div className="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                        <input type="submit" className="btn btn-danger" value="CANCEL"/>
-                                    </div>
                                     <div className="col-md-6 col-sm-6 col-xs-6 pad-adjust">
                                         <button onClick={() => {
                                             Send(sum);
