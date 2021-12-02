@@ -59,7 +59,7 @@ const Balance = () => {
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <span className="help-block text-muted small-font"> Year</span>
-                                        <input className="input-range form-control" type="text" data-min="0" data-max="12" placeholder="YY"/>
+                                        <input className="input-range form-control" type="text" data-min="0" data-max="25" placeholder="YY"/>
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <img src="https://bootstraptema.ru/snippets/form/2016/form-card/card.png"
@@ -90,9 +90,9 @@ const Balance = () => {
                             </div>
                         </div>
                     </div>
+                    {mes}
                 </div>
             </div>
-            {mes}
         </div>
     );
 };
