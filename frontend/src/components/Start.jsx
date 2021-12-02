@@ -16,7 +16,7 @@ function Start() {
     }, [])
 
     const[posts,setPosts]=useState([])
-
+    setPosts([...posts].sort((a,b)=>a[posts.id].localeCompare(b[posts.id])));
 
     return (
         <div style={{margin: "25px"}} className="App">
