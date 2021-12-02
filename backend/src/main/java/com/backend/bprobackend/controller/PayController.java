@@ -34,8 +34,8 @@ public class PayController {
     @PostMapping("/userpay")
     public ResponseEntity<?> PayUser(@RequestBody PayRequest payRequest) {
         int a = (int) ( Math.random() * 3 );
-        if (a==0) {
-            if (payRequest.getNum() <= 10000 && payRequest.getNum() >= 1) {
+        if (payRequest.getNum() <= 10000 && payRequest.getNum() >= 1) {
+            if(a==0){
                 User user = userRepository.getById(payRequest.getI());
                 user.setAccount(payRequest.getNum() + user.getAccount());
                 userRepository.save(user);
@@ -45,10 +45,9 @@ public class PayController {
 
                 return ResponseEntity.ok("Payment successfully completed");
             }
-            else {ResponseEntity.ok("Wrong sum");}
+            else {if(a==1) return ResponseEntity.ok("Insufficient funds"); else return ResponseEntity.ok("No connection with the bank");}
         }
         else
-        {if(a==1) {return ResponseEntity.ok("Insufficient funds");} else {if(a==2) ResponseEntity.ok("No connection with the bank"); }}
-        return ResponseEntity.ok("No connection with the bank");
+        { return ResponseEntity.ok("Wrong sum");}
     }
 }
