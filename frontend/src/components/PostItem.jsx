@@ -7,25 +7,23 @@ import PostForm from "./PostForm";
 
 const PostContract = (props) => {
     const [modal, setModal] = useState(false);
-    const currentUser1 = AuthService.getCurrentUser();
-    let iduser=currentUser1.id;
-    const [cur,setCur]=useState([]);
-   function ref(iduser){
-       axios.post("http://localhost:8080/info", {
+    function ref(iduser){
+        axios.post("http://localhost:8080/info", {
             iduser
         })
         .then(response => {
-            setCur(response.data);
+            return (response.data);
         })}
-        setCur(ref);
-    const currentUser = cur[0];
-    let idcon = currentUser.contract_id;
+    useEffect(() => {
+        const currentUser1 = AuthService.getCurrentUser();
+        let iduser=currentUser1.id;
+        const currentUser =  ref(iduser);
+        localStorage.setItem("myKey",JSON.stringify(currentUser.contract_id));
+    }, [])
+    let idcon = JSON.parse(localStorage.getItem("myKey"));
     let idcontract=props.post.id;
-
-
-
-
-
+    const currentUser1 = AuthService.getCurrentUser();
+    let iduser=currentUser1.id;
 
 function changeTar() {
     return axios
@@ -33,7 +31,7 @@ function changeTar() {
             iduser,
             idcontract
         }).then(response => {
-
+            localStorage.setItem("myKey",JSON.stringify(idcontract));
             window.location.assign('http://localhost:3000/profile')
         });
 
