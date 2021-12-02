@@ -9,7 +9,7 @@ const PostContract = (props) => {
     const [modal, setModal] = useState(false);
 
     const currentUser = JSON.parse(localStorage.getItem("myKey"));
-    let idcon = currentUser.contract_id;
+    let idcon = currentUser.contracts_id;
     let idcontract=props.post.id;
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;
@@ -20,7 +20,7 @@ function changeTar() {
             iduser,
             idcontract
         }).then(response => {
-            localStorage.setItem("myKey",JSON.stringify(idcontract));
+            let i = AuthService.ref(iduser);
             window.location.assign('http://localhost:3000/profile')
         });
 

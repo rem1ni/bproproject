@@ -22,7 +22,6 @@ class AuthService {
     })
         .then(response => {
           localStorage.setItem("myKey",JSON.stringify(response.data));
-          return (response.data);
         })}
   logout() {
     localStorage.removeItem("user");
