@@ -65,9 +65,12 @@ public class AuthController {
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getAccount(),
+                userDetails.getMinutes(),
+                userDetails.getContracts_id(),
                 userDetails.getContracts(),
                 userDetails.getContracts_sum(),
-                roles));
+                roles,
+                userDetails.getFac()));
     }
 
     @PostMapping("/signup")
@@ -91,7 +94,8 @@ public class AuthController {
             user.setContract(userContract);
         }
         user.setRoles(roles);
-        user.setAccount(0L);
+        user.setAccount(0D);
+        user.setMinutes(0D);
         userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registered!"));
     }

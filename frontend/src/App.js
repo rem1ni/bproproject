@@ -6,9 +6,12 @@ import Start from "./components/Start.jsx";
 import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-import Profile from "./components/profile.component";
+import Profile from "./components/Profile";
 import BoardAdmin from "./components/board-admin.component";
 import EventBus from "./common/EventBus";
+import Balance from "./components/Balance";
+import Story from "./components/Story";
+import Edit from "./components/MyModal";
 
 class App extends Component {
   constructor(props) {
@@ -54,76 +57,90 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-            Bpro
-          <div className="navbar-nav mr-auto">
 
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin
-                </Link>
-              </li>
-            )}
+          <div>
+            <nav className="navbar navbar-expand navbar-dark bg-dark">
+              Bpro
+              <div className="navbar-nav mr-auto">
 
+                {showAdminBoard && (
+                    <li className="nav-item">
+                      <Link to={"/admin"} className="nav-link">
+                        Admin
+                      </Link>
+                    </li>
+                )}
+
+              </div>
+
+              {currentUser ? (
+                  <div className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                      <Link to={"/profile"} className="nav-link">
+                        {currentUser.username}
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link to={"/contract"} className="nav-link">
+                        Contracts
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"/balance"} className="nav-link">
+                        Balance
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <a href="/login" className="nav-link" onClick={this.logOut}>
+                        LogOut
+                      </a>
+                    </li>
+                  </div>
+              ) : (
+                  <div className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                      <Link to={"/login"} className="nav-link">
+                        Login
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link to={"/register"} className="nav-link">
+                        Sign Up
+                      </Link>
+                    </li>
+
+                  </div>
+              )}
+            </nav>
+
+            <div className="container mt-3">
+              <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/profile">
+                  <Profile/>
+                </Route>
+                <Route path="/admin" component={BoardAdmin} />
+                <Route path="/contract">
+                  <Start/>
+                </Route>
+                <Route path="/balance">
+                  <Balance/>
+                </Route>
+                <Route path="/story">
+                  <Story/>
+                </Route>
+                <Route path="/edit">
+                  <Edit/>
+                </Route>
+              </Switch>
+            </div>
+
+            { /*<AuthVerify logOut={this.logOut}/> */ }
           </div>
 
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
-                </a>
-              </li>
-              <li className="nav-item">
-                <Link to={"/contract"} className="nav-link">
-                  Contracts
-                </Link>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/contract"} className="nav-link">
-                  Contracts
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
-
-        <div className="container mt-3">
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
-            <Route path="/admin" component={BoardAdmin} />
-            <Route path="/contract">
-              <Start/>
-            </Route>
-          </Switch>
-        </div>
-
-        { /*<AuthVerify logOut={this.logOut}/> */ }
-      </div>
     );
   }
 }

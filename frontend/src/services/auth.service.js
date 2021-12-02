@@ -13,11 +13,16 @@ class AuthService {
         if (response.data.accessToken) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }
-
         return response.data;
       });
   }
-
+   ref(iduser){
+    axios.post("http://localhost:8080/info", {
+      iduser
+    })
+        .then(response => {
+          localStorage.setItem("myKey",JSON.stringify(response.data));
+        })}
   logout() {
     localStorage.removeItem("user");
   }
@@ -31,7 +36,7 @@ class AuthService {
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(localStorage.getItem('user'));
   }
 }
 

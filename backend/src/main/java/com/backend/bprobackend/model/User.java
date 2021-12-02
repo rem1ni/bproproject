@@ -1,9 +1,10 @@
 package com.backend.bprobackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
 
 @Entity
 @Table(name = "users",
@@ -17,7 +18,8 @@ public class User  {
 
     private String username;
     private String password;
-    private Long account;
+    private Double account;
+    private Double minutes;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "contracts_user",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -36,15 +38,21 @@ public class User  {
         this.password = password;
     }
 
-    public Long getAccount() {
+    public Double getAccount() {
         return account;
     }
 
-    public void setAccount(Long account) {
+    public void setAccount(Double account) {
         this.account = account;
     }
 
+    public Double getMinutes() {
+        return minutes;
+    }
 
+    public void setMinutes(Double minutes) {
+        this.minutes = minutes;
+    }
 
     public Long getId() {
         return id;

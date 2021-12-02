@@ -28,6 +28,6 @@ import java.util.List;
     // надо доделать безопасность
     @GetMapping("/contracts")
     public List<Contract> adminAccess(){
-        return  contractRepos.findAll();
+        return  contractRepos.findAllByOrderByIdAsc();
     }
 }

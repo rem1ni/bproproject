@@ -1,8 +1,10 @@
 package com.backend.bprobackend.controller;
 
+import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.model.User;
 import com.backend.bprobackend.repository.UserRepos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +27,7 @@ public class UserController {
     // надо доделать безопасность
     @GetMapping("/admin")
     public List<User> adminAccess(){
-        List<User> users = userRepos.findAll();
-        System.out.println(users);
+        List<User> users = userRepos.findAllByOrderByIdAsc();
         return users;
     }
 

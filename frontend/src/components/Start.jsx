@@ -17,7 +17,6 @@ function Start() {
 
     const[posts,setPosts]=useState([])
 
-
     return (
         <div style={{margin: "25px"}} className="App">
             <PostList posts={posts} title={'Тарифы'}/>
