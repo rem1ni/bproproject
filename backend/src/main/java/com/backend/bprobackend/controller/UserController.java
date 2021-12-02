@@ -27,7 +27,7 @@ public class UserController {
     // надо доделать безопасность
     @GetMapping("/admin")
     public List<User> adminAccess(){
-        List<User> users = userRepos.findAll();
+        List<User> users = userRepos.findAllByOrderByIdAsc();
         return users;
     }
 

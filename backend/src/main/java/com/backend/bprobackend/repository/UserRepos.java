@@ -1,5 +1,6 @@
 package com.backend.bprobackend.repository;
 
+import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.model.Pay;
 import com.backend.bprobackend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +16,5 @@ public interface UserRepos extends JpaRepository<User, Long> {
 
     Boolean existsByUsername(String username); // есть ли такой пользователь
 
-
+    List<User>  findAllByOrderByIdAsc();
 }

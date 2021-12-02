@@ -1,9 +1,7 @@
 package com.backend.bprobackend.controller;
 
-import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.model.User;
 import com.backend.bprobackend.repository.UserRepos;
-import com.backend.bprobackend.request.ContractRequest;
 import com.backend.bprobackend.request.MinutesRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +16,8 @@ public class MinutesController {
     @PostMapping("/minutes")
     public ResponseEntity<?> ContractUser(@RequestBody MinutesRequest minutesRequest) {
         User user=userRepository.getById(minutesRequest.getIduser());
-            user.setMinutes(user.getMinutes()+minutesRequest.getMin());
+        double min=Math.ceil(minutesRequest.getMin());
+            user.setMinutes(user.getMinutes()+min);
             userRepository.save(user);
             return ResponseEntity.ok("success");
         }
