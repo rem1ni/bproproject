@@ -9,5 +9,6 @@ import java.util.Optional;
 
 public interface ContractRepos extends JpaRepository<Contract,Integer> {
     Optional<Contract> findByName(String name);
+    List<Contract>  findAllByOrderByIdAsc();
 
 }
