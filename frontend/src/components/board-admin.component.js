@@ -14,7 +14,7 @@ export default class BoardAdmin extends React.Component {
     add(iduser,min){
         return axios
             .post("http://localhost:8080/bpro/minutes", {
-                iduser
+                iduser,
                 min
             })
             .then(response => {
@@ -32,7 +32,7 @@ export default class BoardAdmin extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
     handleChange(event) {
-        this.setState({value: event.target.value});
+        this.setState({min: event.target.value});
     }
     componentDidMount() {
         UserService.getAdminBoard().then((response) => {
