@@ -4,8 +4,15 @@ import { Switch, Route, Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import $ from 'jquery';
 const Balance = () => {
-    $('body').on('input', '.input-number', function(){
-        this.value = this.value.replace(/[^0-9]/g, '');
+    $('body').on('input', '.input-range', function(){
+        let value = this.value.replace(/[^0-9]/g, '');
+        if (value < $(this).data('min')) {
+            this.value = $(this).data('min');
+        } else if (value > $(this).data('max')) {
+            this.value = $(this).data('max');
+        } else {
+            this.value = value;
+        }
     });
     const [sum,setSum]=useState('');
     const[mes,setMes] = useState("");
@@ -41,7 +48,7 @@ const Balance = () => {
 
                                 <div className="row ">
                                     <div className="col-md-12">
-                                        <input type="text" className="input-number"  placeholder="Card Number" />
+                                        <input className="input-range form-control" type="text" data-min="1" data-max="16" placeholder="Card Number" />
                                     </div>
                                 </div>
 
