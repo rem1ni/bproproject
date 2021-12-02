@@ -11,18 +11,32 @@ export default class BoardAdmin extends React.Component {
                 window.location.reload();
             });
     }
+    add(iduser,min){
+        return axios
+            .post("http://localhost:8080/bpro/minutes", {
+                iduser
+                min
+            })
+            .then(response => {
+                window.location.reload();
+            });
+    }
 
     constructor(props) {
         super(props)
 
         this.state = {
-            users: []
+            users: [],
+            min: 0
         }
+        this.handleChange = this.handleChange.bind(this);
     }
-
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
     componentDidMount() {
         UserService.getAdminBoard().then((response) => {
-            this.setState({ users: response.data});
+            this.setState({ users: response.data , min:0});
         });
     }
 
@@ -58,8 +72,8 @@ export default class BoardAdmin extends React.Component {
           </p2></td>
                                         <td>
                                             <form>
-                                                <input type="number"  className="form-control" placeholder="Минуты" />
-                                                <button>Отправить</button>
+                                                <input type="number"  className="form-control" placeholder="Минуты" value={this.state.value} onChange={this.handleChange} />
+                                                <button onClick={()=> this.add(user.id, min )}>Отправить</button>
                                             </form>
 
                                         </td>
