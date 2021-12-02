@@ -8,7 +8,8 @@ import PostForm from "./PostForm";
 const PostContract = (props) => {
     const [modal, setModal] = useState(false);
 
-    let idcon = JSON.parse(localStorage.getItem("myKey"));
+    const currentUser = JSON.parse(localStorage.getItem("myKey"));
+    let idcon = currentUser.contract_id;
     let idcontract=props.post.id;
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;

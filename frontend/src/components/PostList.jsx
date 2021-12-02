@@ -10,18 +10,11 @@ const PostList = ({posts,title}) => {
             </h1>
         )
     }
-    function ref(iduser){
-        axios.post("http://localhost:8080/info", {
-            iduser
-        })
-            .then(response => {
-                return (response.data);
-            })}
+
     const currentUser1 = AuthService.getCurrentUser();
     let iduser=currentUser1.id;
-    const currentUser =  ref(iduser);
-    let aboba = currentUser.contract_id;
-    localStorage.setItem("myKey",JSON.stringify(aboba));
+    const i =  AuthService.ref(iduser);
+
     return (
         <div >
             <h1 style={{textAlign:'center'}}>{title}</h1>
