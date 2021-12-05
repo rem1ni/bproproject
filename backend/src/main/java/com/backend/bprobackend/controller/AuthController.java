@@ -78,7 +78,7 @@ public class AuthController {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Имя пользователя уже занято!"));
+                    .body(new MessageResponse("Username is already taken!"));
         }
         User user = new User(signUpRequest.getUsername(),
                 encoder.encode(signUpRequest.getPassword()));
@@ -88,15 +88,15 @@ public class AuthController {
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Роль не найдена."));
+                    .orElseThrow(() -> new RuntimeException("Role is not found."));
             roles.add(userRole);
-            Contract userContract = contractRepository.findByName("Отсутствует").orElseThrow(() -> new RuntimeException("Тариф не найден. "));
+            Contract userContract = contractRepository.findByName("None").orElseThrow(() -> new RuntimeException("Contract is not found."));
             user.setContract(userContract);
         }
         user.setRoles(roles);
         user.setAccount(0D);
         user.setMinutes(0D);
         userRepository.save(user);
-        return ResponseEntity.ok(new MessageResponse("Пользователь создан"));
+        return ResponseEntity.ok(new MessageResponse("User registered!"));
     }
 }

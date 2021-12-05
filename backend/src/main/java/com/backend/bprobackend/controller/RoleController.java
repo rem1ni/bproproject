@@ -17,29 +17,32 @@ import java.util.Set;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/bpro")
+@RequestMapping("/bpro/roles")
 public class RoleController {
     @Autowired
     UserRepos userRepository;
     @Autowired
-    RoleRepos roleRepository;
-    @PostMapping("/role")
+    RoleRepos rolerepos;
+    @PostMapping("/add")
     public ResponseEntity<?> RoleAddUser(@RequestBody RoleRequest roleRequest) {
         User user=userRepository.getById(roleRequest.getIduser());
-        Set<Role> roles = new HashSet<>();
-        Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)
-        .orElseThrow(() -> new RuntimeException("Роль не найдена"));
+        Set<Role> roles = user.getRoles();
+        Role userRole = rolerepos.getById(roleRequest.getIdrole());
         roles.add(userRole);
-        if (roleRequest.getCheck1()==1) {
-            Role employee = roleRepository.getById(2);
-            roles.add(employee);
-        }
-        if (roleRequest.getCheck2()==1) {
-            Role admin = roleRepository.getById(3);
-            roles.add(admin);
-        }
         user.setRoles(roles);
         userRepository.save(user);
+
+        return ResponseEntity.ok("success");
+    }
+    @PostMapping("/del")
+    public ResponseEntity<?> RoleDelUser(@RequestBody RoleRequest roleRequest) {
+        User user=userRepository.getById(roleRequest.getIduser());
+        Set<Role> roles = user.getRoles();
+        Role userRole = rolerepos.getById(roleRequest.getIdrole());
+        roles.remove(userRole);
+        user.setRoles(roles);
+        userRepository.save(user);
+
         return ResponseEntity.ok("success");
     }
 }

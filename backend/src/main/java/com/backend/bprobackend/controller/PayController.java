@@ -39,15 +39,15 @@ public class PayController {
                 User user = userRepository.getById(payRequest.getI());
                 user.setAccount(payRequest.getNum() + user.getAccount());
                 userRepository.save(user);
-                String time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+                String time = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 Pay pay = new Pay(payRequest.getI(), payRequest.getNum(), user.getAccount(), time);
                 payRepos.save(pay);
 
-                return ResponseEntity.ok("Платеж успешно выполнен");
+                return ResponseEntity.ok("Payment successfully completed");
             }
-            else {if(a==1) return ResponseEntity.ok("Недостаточно средств"); else return ResponseEntity.ok("Нет соединения с банком");}
+            else {if(a==1) return ResponseEntity.ok("Insufficient funds"); else return ResponseEntity.ok("No connection with the bank");}
         }
         else
-        { return ResponseEntity.ok("Неверная сумма(мин - 1, макс-10000)");}
+        { return ResponseEntity.ok("Wrong sum");}
     }
 }
