@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import UserService from '../services/user.service';
 import axios from "axios";
+import PostForm2 from "./PostForm2";
+import MyModal2 from "./MyModal2";
 export default class BoardAdmin extends React.Component {
     del(iduser){
         return axios
@@ -22,12 +24,30 @@ export default class BoardAdmin extends React.Component {
             });
     }
 
+    setModal(props){
+        this.setState({ modal: props});
+    }
+
+    check(checked,checked2){
+        let iduser = JSON.parse(localStorage.getItem('idu'));
+        let check1=Number(checked);
+        let check2=Number(checked2);
+        axios
+            .post("http://localhost:8080/bpro/role", {
+                iduser,
+                check1,
+                check2
+            });
+        window.location.reload();
+    }
     constructor(props) {
         super(props)
 
         this.state = {
             users: [],
-            min: 0
+            min: 0,
+            modal:false,
+            id:0
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -54,6 +74,7 @@ export default class BoardAdmin extends React.Component {
                                 <th>Minutes</th>
                                 <th>Contract</th>
                                 <th>Add minutes</th>
+                                <th>Role</th>
                                 <th>Delete </th>
                             </tr>
                         </thead>
@@ -78,6 +99,14 @@ export default class BoardAdmin extends React.Component {
 
                                         </td>
                                         <td>
+                                            <button className="btn btn-success"
+                                                    onClick={() => {
+                                                        localStorage.setItem("idu",JSON.stringify(user.id));
+                                                        this.setModal(true)
+                                                    }}
+                                            >Изменить роль</button>
+                                        </td>
+                                        <td>
                                             <button onClick={()=> this.del(user.id)}>Delete</button>
                                         </td>
                                     </tr>
@@ -86,6 +115,9 @@ export default class BoardAdmin extends React.Component {
                             }
                         </tbody>
                     </table>
+                <MyModal2 visible={this.state.modal} setVisible={()=> this.setModal()} >
+                    <PostForm2 create={this.check}   />
+                </MyModal2>
             </div>
         )
     }

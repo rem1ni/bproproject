@@ -59,12 +59,11 @@ class App extends Component {
     return (
 
           <div>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
-              Bpro
+            <nav className="kno">
               <div className="navbar-nav mr-auto">
 
                 {showAdminBoard && (
-                    <li className="nav-item">
+                    <li className="btn">
                       <Link to={"/admin"} className="nav-link">
                         Admin
                       </Link>
@@ -75,23 +74,23 @@ class App extends Component {
 
               {currentUser ? (
                   <div className="navbar-nav ml-auto">
-                    <li className="nav-item">
+                    <li className="btn">
                       <Link to={"/profile"} className="nav-link">
                         {currentUser.username}
                       </Link>
                     </li>
 
-                    <li className="nav-item">
+                    <li className="btn">
                       <Link to={"/contract"} className="nav-link">
                         Contracts
                       </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="btn">
                       <Link to={"/balance"} className="nav-link">
                         Balance
                       </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="btn">
                       <a href="/login" className="nav-link" onClick={this.logOut}>
                         LogOut
                       </a>
@@ -99,13 +98,13 @@ class App extends Component {
                   </div>
               ) : (
                   <div className="navbar-nav ml-auto">
-                    <li className="nav-item">
+                    <li className="btn">
                       <Link to={"/login"} className="nav-link">
                         Login
                       </Link>
                     </li>
 
-                    <li className="nav-item">
+                    <li className="btn">
                       <Link to={"/register"} className="nav-link">
                         Sign Up
                       </Link>

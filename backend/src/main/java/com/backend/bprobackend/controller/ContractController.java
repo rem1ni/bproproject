@@ -40,7 +40,8 @@ public class ContractController {
     public ResponseEntity<?> ContractEdit(@RequestBody EditRequest editRequest) {
         Contract contract=contractRepository.getById(editRequest.getIdcontract());
         contract.setName(editRequest.getTitle());
-        contract.setSum(editRequest.getBody());
+        double min=Math.ceil(editRequest.getBody());
+        contract.setSum(min);
         contractRepository.save(contract);
             return ResponseEntity.ok("success");
         }
