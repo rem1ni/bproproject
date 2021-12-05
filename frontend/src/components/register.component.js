@@ -120,7 +120,7 @@ export default class Register extends Component {
             }}
           >
             {!this.state.successful && (
-              <div>
+              <div className="form">
                 <div className="name">
                   <Input
                     type="text"

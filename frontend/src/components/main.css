@@ -61,6 +61,9 @@
     width: 40px;
     outline: none;
 }
+.form{
+    position: absolute;
+}
 .window{
     display: flex;
     justify-content: center;
