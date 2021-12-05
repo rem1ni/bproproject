@@ -73,7 +73,7 @@ class App extends Component {
               </div>
 
               {currentUser ? (
-                  <div className="navbar-nav ml-auto">
+                  <div>
                     <li className="btn">
                       <Link to={"/profile"} className="nav-link">
                         {currentUser.username}
@@ -97,7 +97,7 @@ class App extends Component {
                     </li>
                   </div>
               ) : (
-                  <div className="navbar-nav ml-auto">
+                  <div >
                     <li className="btn">
                       <Link to={"/login"} className="nav-link">
                         Login

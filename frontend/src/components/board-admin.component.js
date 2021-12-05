@@ -99,7 +99,7 @@ export default class BoardAdmin extends React.Component {
 
                                         </td>
                                         <td>
-                                            {user.roles && user.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
+
                                             <button className="btn btn-success"
                                                     onClick={() => {
                                                         localStorage.setItem("idu",JSON.stringify(user.id));
