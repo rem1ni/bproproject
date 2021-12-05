@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 
-const PostForm2 = ({create}) => {
+const PostForm2 = ({create}, {state}) => {
     const [checked, setChecked] = useState(false);
     const [checked2, setChecked2] = useState(false);
 
@@ -14,7 +14,7 @@ const PostForm2 = ({create}) => {
     }
     const addNewPost = (e) => {
         e.preventDefault()
-        create(checked,checked2)
+        create(checked,checked2,state)
     }
     return (
         <form>

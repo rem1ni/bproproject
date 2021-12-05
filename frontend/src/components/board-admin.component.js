@@ -27,8 +27,11 @@ export default class BoardAdmin extends React.Component {
     setModal(props){
         this.setState({ modal: props});
     }
-    post(check1,check2){
-        let iduser=this.state.id;
+
+    check(checked,checked2,state){
+        let iduser = state;
+        let check1=Number(checked);
+        let check2=Number(checked2);
         axios
             .post("http://localhost:8080/bpro/role", {
                 iduser,
@@ -36,12 +39,6 @@ export default class BoardAdmin extends React.Component {
                 check2
             });
         window.location.reload();
-    }
-    check(checked,checked2){
-
-        let check1=Number(checked);
-        let check2=Number(checked2);
-        this.post(check1,check2);
     }
     constructor(props) {
         super(props)
@@ -119,8 +116,8 @@ export default class BoardAdmin extends React.Component {
                             }
                         </tbody>
                     </table>
-                <MyModal2 visible={this.state.modal} >
-                    <PostForm2 create={this.check}  />
+                <MyModal2 visible={this.state.modal} setVisible={()=> this.setModal()} >
+                    <PostForm2 create={this.check} state={this.state.id}  />
                 </MyModal2>
             </div>
         )
