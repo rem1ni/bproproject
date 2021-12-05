@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import logo from './blok.svg';
+import logo from './logo.png';
 import AuthService from "../services/auth.service";
-import './main.css';
+
 const required = value => {
   if (!value) {
     return (
@@ -108,10 +108,9 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="line"></div>
-        <div className="window">
-          <img src={logo} alt="frame"/>
+      <div className="col-md-12">
+        <div className="card card-container">
+          <img src={logo} alt="logo" />
 
           <Form
             onSubmit={this.handleRegister}
@@ -121,10 +120,11 @@ export default class Register extends Component {
           >
             {!this.state.successful && (
               <div>
-                <div className="name">
+                <div className="form-group">
+                  <label htmlFor="username">Username</label>
                   <Input
                     type="text"
-                    size="27" className="textField"
+                    className="form-control"
                     name="username"
                     value={this.state.username}
                     onChange={this.onChangeUsername}
@@ -134,10 +134,11 @@ export default class Register extends Component {
 
 
 
-                <div className="pass">
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
                   <Input
                     type="password"
-                    ize="27" className="textField"
+                    className="form-control"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChangePassword}
@@ -145,8 +146,9 @@ export default class Register extends Component {
                   />
                 </div>
 
-                  <button className="log">Зарегистрироваться</button>
-
+                <div className="form-group">
+                  <button className="btn btn-primary btn-block">Sign Up</button>
+                </div>
               </div>
             )}
 

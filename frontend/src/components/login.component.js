@@ -4,7 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import logo from './logo.png';
 import AuthService from "../services/auth.service";
-import './main.css';
+
 const required = value => {
   if (!value) {
     return (
@@ -81,10 +81,9 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="line"></div>
-        <div className="window">
-          <img src={logo} alt="frame"/>
+      <div className="col-md-12">
+        <div className="card card-container">
+          <img src={logo} alt="logo" />
 
           <Form
             onSubmit={this.handleLogin}
