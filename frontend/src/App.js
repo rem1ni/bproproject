@@ -60,25 +60,26 @@ class App extends Component {
 
           <div>
             <nav className="kno">
-              <div className="navbar-nav mr-auto">
 
-                {showAdminBoard && (
+
+           
+           
+
+              {currentUser ? (
+                  <div >
+                    <li className="btn">
+                      <Link to={"/profile"} className="nav-link">
+                        {currentUser.username}
+                      </Link>
+                    </li>
+                    
+                    {showAdminBoard && (
                     <li className="btn">
                       <Link to={"/admin"} className="nav-link">
                         Admin
                       </Link>
                     </li>
                 )}
-
-              </div>
-
-              {currentUser ? (
-                  <div className="navbar-nav ml-auto">
-                    <li className="btn">
-                      <Link to={"/profile"} className="nav-link">
-                        {currentUser.username}
-                      </Link>
-                    </li>
 
                     <li className="btn">
                       <Link to={"/contract"} className="nav-link">
