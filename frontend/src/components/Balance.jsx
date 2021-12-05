@@ -48,7 +48,7 @@ const Balance = () => {
 
                                 <div className="row ">
                                     <div className="col-md-12">
-                                        <input className="input-range form-control" type="text" required data-min="0" data-max="9999999999999999" placeholder="Card Number" />
+                                        <input className="input-range form-control" type="text" required data-min="0" data-max="9999999999999999" placeholder="Номер карты" />
                                     </div>
                                 </div>
 
@@ -74,7 +74,7 @@ const Balance = () => {
                                 <div className="row mt-3">
                                     <div className="col-md-12 pad-adjust">
 
-                                        <input type="text" required className="form-control" placeholder="Name"/>
+                                        <input type="text" required className="form-control" placeholder="Имя"/>
                                     </div>
                                 </div>
 
