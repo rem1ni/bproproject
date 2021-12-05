@@ -88,7 +88,7 @@ export default class BoardAdmin extends React.Component {
                                         <td>{user.account}</td>
                                         <td>{user.minutes}</td>
                                         <td><p2>
-          Название тарифа": "} <strong>{user.contract.name}</strong><br></br>
+          Название тарифа{": "} <strong>{user.contract.name}</strong><br></br>
           Сумма к оплате{": "} <strong>{user.contract.sum}</strong><br></br>
           </p2></td>
                                         <td>
