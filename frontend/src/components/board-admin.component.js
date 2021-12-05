@@ -69,13 +69,13 @@ export default class BoardAdmin extends React.Component {
                         <thead>
                             <tr>
                                 <th>Id </th>
-                                <th>username</th>
-                                <th>Balance</th>
-                                <th>Minutes</th>
-                                <th>Contract</th>
-                                <th>Add minutes</th>
-                                <th>Role</th>
-                                <th>Delete </th>
+                                <th>Имя пользователя</th>
+                                <th>Баланс</th>
+                                <th>Минуты</th>
+                                <th>Тариф</th>
+                                <th>Добавить минуты</th>
+                                <th>Роли</th>
+                                <th>Удалить </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,7 +107,7 @@ export default class BoardAdmin extends React.Component {
                                             >Изменить роль</button>
                                         </td>
                                         <td>
-                                            <button onClick={()=> this.del(user.id)}>Delete</button>
+                                            <button onClick={()=> this.del(user.id)}>Удалить</button>
                                         </td>
                                     </tr>
                                 )
