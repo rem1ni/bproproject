@@ -29,13 +29,10 @@ import logo from './unknown.png';
       <Container
           className="d-flex justify-content-center align-items-center"
           style={{height: window.innerHeight - 54}}>
+          <img src={logo} alt="logo" />
         <Card style={{width:400}} className="border border-dark p-5">
-            <img src={logo} alt="logo" />
-          <p1 align="center">
-            Id{ ":"}
-            <strong> {stat.id} </strong>
-          </p1>
-          <p1 align="center">
+            
+          <p1>
             Username: <strong>{info.username}</strong><br></br>
           </p1>
           <br></br>
