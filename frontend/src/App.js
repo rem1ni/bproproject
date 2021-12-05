@@ -59,23 +59,23 @@ class App extends Component {
     return (
 
           <div>
-            <nav className="kno">
+            <nav>
 
 
            
            
 
               {currentUser ? (
-                  <div >
+                  <div className="kno">
                     <li className="btn">
-                      <Link to={"/profile"} className="nav-link">
+                      <Link to={"/profile"} className="nav-link ">
                         {currentUser.username}
                       </Link>
                     </li>
                     
                     {showAdminBoard && (
                     <li className="btn">
-                      <Link to={"/admin"} className="nav-link">
+                      <Link to={"/admin"} className="nav-link header-link">
                         Admin
                       </Link>
                     </li>
@@ -98,7 +98,7 @@ class App extends Component {
                     </li>
                   </div>
               ) : (
-                  <div className="navbar-nav ml-auto">
+                  <div className="kno">
                     <li className="btn">
                       <Link to={"/login"} className="nav-link">
                         Login
