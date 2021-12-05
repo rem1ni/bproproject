@@ -28,8 +28,8 @@ export default class BoardAdmin extends React.Component {
         this.setState({ modal: props});
     }
 
-    check(checked,checked2,state){
-        let iduser = state;
+    check(checked,checked2){
+        let iduser = this.state.id;
         let check1=Number(checked);
         let check2=Number(checked2);
         axios
@@ -103,7 +103,6 @@ export default class BoardAdmin extends React.Component {
                                                     onClick={() => {
                                                         this.setState({ id: user.id});
                                                         this.setModal(true)
-
                                                     }}
                                             >Изменить роль</button>
                                         </td>
@@ -117,7 +116,7 @@ export default class BoardAdmin extends React.Component {
                         </tbody>
                     </table>
                 <MyModal2 visible={this.state.modal} setVisible={()=> this.setModal()} >
-                    <PostForm2 create={this.check} state={this.state.id}  />
+                    <PostForm2 create={this.check}   />
                 </MyModal2>
             </div>
         )
