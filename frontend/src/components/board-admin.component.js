@@ -29,7 +29,7 @@ export default class BoardAdmin extends React.Component {
     }
 
     check(checked,checked2){
-        let iduser = this.state.id;
+        let iduser = JSON.parse(localStorage.getItem('idu'));
         let check1=Number(checked);
         let check2=Number(checked2);
         axios
@@ -101,7 +101,7 @@ export default class BoardAdmin extends React.Component {
                                         <td>
                                             <button className="btn btn-success"
                                                     onClick={() => {
-                                                        this.setState({ id: user.id});
+                                                        localStorage.setItem("idu",JSON.stringify(this.state.user.id));
                                                         this.setModal(true)
                                                     }}
                                             >Изменить роль</button>
