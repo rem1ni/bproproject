@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
 import axios from "axios";
-import logo from './unknown.png';
+import logo from './unknown1.png';
  const Profile = () => {
   const [info,setInfo]=useState([]);
   const [stat,setStat]=useState([]);
@@ -30,7 +30,7 @@ import logo from './unknown.png';
           className="d-flex justify-content-center align-items-center"
           style={{height: window.innerHeight - 54}}>
         <Card style={{width:400}} className="border border-dark p-5">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="aboba" />
           <p1>
             Имя пользователя: <strong>{info.username}</strong><br></br>
           </p1>
