@@ -63,7 +63,7 @@ export default class BoardAdmin extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Users List</h2>
+                <h2 className="text-center">Список пользователей</h2>
 
                     <table className="table table-striped table-bordered">
                         <thead>
