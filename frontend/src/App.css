@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+.kno{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  border: none !important;
+  cursor:pointer;
+  width: 100%;
+  margin-top: 0;
+}
+.btn{
+  margin-left: 10px;
+  color: black;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor:pointer;
+  background-color: #9ce3e7;
+  border: #f0f0f0;
+}
 label {
   display: block;
   margin-top: 10px;
