@@ -20,8 +20,10 @@ const PostForm2 = ({create}) => {
         <form>
             Работник
             <input type="checkbox" checked={checked} onChange={handleChange} />
+            <br/>
             Админ
             <input type="checkbox" checked={checked2} onChange={handleChange2} />
+            <br/>
             <button onClick={addNewPost}>Готово</button>
         </form>
 
