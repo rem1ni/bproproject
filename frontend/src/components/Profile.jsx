@@ -29,26 +29,25 @@ import logo from './unknown.png';
       <Container
           className="d-flex justify-content-center align-items-center"
           style={{height: window.innerHeight - 54}}>
-          <img src={logo} alt="logo" />
         <Card style={{width:400}} className="border border-dark p-5">
-            
+            <img src={logo} alt="logo" />
           <p1>
-            Username: <strong>{info.username}</strong><br></br>
+            Имя пользователя: <strong>{info.username}</strong><br></br>
           </p1>
           <br></br>
           <p3>
-            Balance: <strong>{info.account}</strong><br></br>
+            Баланс: <strong>{info.account}</strong><br></br>
           </p3>
           <p2>
-            Contract_id{": "} <strong>{info.contracts_id}</strong><br></br>
-            Contract{": "} <strong>{info.contracts}</strong><br></br>
-            Tariff{": "} <strong>{info.contracts_sum}</strong> <p5>per min</p5><br></br>
-            Minutes{": "} <strong>{info.minutes}</strong><br></br>
-            Sum to pay{": "} <strong>{info.fac}</strong><br></br>
+            Номер тарифа{": "} <strong>{info.contracts_id}</strong><br></br>
+            Тариф{": "} <strong>{info.contracts}</strong><br></br>
+            Стоимость{": "} <strong>{info.contracts_sum}</strong> <p5>за минуту</p5><br></br>
+            Минуты{": "} <strong>{info.minutes}</strong><br></br>
+            Сумма к оплате{": "} <strong>{info.fac}</strong><br></br>
           </p2>
           <br></br>
           <p2>
-            Roles{": "}<br></br>
+            Роли{": "}<br></br>
             {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
           </p2>
           <div className="ml-auto" >
