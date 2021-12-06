@@ -23,7 +23,7 @@ public class PayDetailService {
     UserRepos userRepository;
     @Autowired
     PayRepos payRepos;
-    String timetopay="30";
+    String timetopay="01";
 
     @Scheduled(fixedDelay = 3600000)
     public void PayService1(){
@@ -40,7 +40,7 @@ public class PayDetailService {
                     user.setMinutes(0d);
                     userRepository.save(user);
                     sum = -1 * sum;
-                    String timetopay = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
+                    String timetopay = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
                     Pay pay = new Pay(user.getId(), sum, user.getAccount(), timetopay);
                     payRepos.save(pay);
                     i++;
