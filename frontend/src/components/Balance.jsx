@@ -42,8 +42,10 @@ const Balance = () => {
     }
     return (
         <div className="container mt-5">
-            Баланс: {id}
             <div className="col-md-4 col-md-offset-4  p-3 m-lg-auto">
+            Баланс: {id}
+            <br></br>
+            <br></br>
                 Введите сумму пополнения:
                 <input className="input-range form-control mt-2" type="text" required data-min="0" data-max="10000" placeholder="Сумма"
                        value={sum}

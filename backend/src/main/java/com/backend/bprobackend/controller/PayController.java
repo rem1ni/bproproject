@@ -48,6 +48,6 @@ public class PayController {
             else {if(a==1) return ResponseEntity.ok("Недостаточно средств"); else return ResponseEntity.ok("Нет соединения с банком");}
         }
         else
-        { return ResponseEntity.ok("Неверная сумма(мин - 1, макс-10000)");}
+        { return ResponseEntity.ok("Неверная сумма(мин: 1, макс: 10000)");}
     }
 }
