@@ -16,6 +16,11 @@ const Balance = () => {
     });
     const [sum,setSum]=useState('');
     const[mes,setMes] = useState("");
+    const currentUser = AuthService.getCurrentUser();
+    let iduser = currentUser.id;
+    AuthService.ref(iduser);
+    const cu = JSON.parse(localStorage.getItem('myKey'));
+    let id=cu.account;
     function Send() {
         let num = Number(sum);
         const currentUser = AuthService.getCurrentUser();
@@ -33,6 +38,7 @@ const Balance = () => {
     }
     return (
         <div className="container mt-5">
+            Баланс: {id}
             <div className="col-md-4 col-md-offset-4  p-3 m-lg-auto">
                 Введите сумму пополнения:
                 <input className="input-range form-control mt-2" type="text" required data-min="0" data-max="10000" placeholder="Сумма"
