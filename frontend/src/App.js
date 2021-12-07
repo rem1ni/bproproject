@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Start from "./components/Start.jsx";
 import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-import Profile from "./components/profile.component";
+import Profile from "./components/Profile";
 import BoardAdmin from "./components/board-admin.component";
-// import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
+import Balance from "./components/Balance";
+import Story from "./components/Story";
+import Edit from "./components/MyModal";
 
 class App extends Component {
   constructor(props) {
@@ -54,62 +57,90 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-            Bpro
-          <div className="navbar-nav mr-auto">
 
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin
-                </Link>
-              </li>
-            )}
+          <div>
+            <nav>
 
+
+           
+           
+
+              {currentUser ? (
+                  <div className="kno">
+                    <li className="btn">
+                      <Link to={"/profile"} className="nav-link ">
+                        {currentUser.username}
+                      </Link>
+                    </li>
+                    
+                    {showAdminBoard && (
+                    <li className="btn">
+                      <Link to={"/admin"} className="nav-link header-link">
+                        Админ
+                      </Link>
+                    </li>
+                )}
+
+                    <li className="btn">
+                      <Link to={"/contract"} className="nav-link">
+                        Тарифы
+                      </Link>
+                    </li>
+                    <li className="btn">
+                      <Link to={"/balance"} className="nav-link">
+                        Баланс
+                      </Link>
+                    </li>
+                    <li className="btn">
+                      <a href="/login" className="nav-link" onClick={this.logOut}>
+                        Выйти
+                      </a>
+                    </li>
+                  </div>
+              ) : (
+                  <div className="kno">
+                    <li className="btn">
+                      <Link to={"/login"} className="nav-link">
+                        Вход
+                      </Link>
+                    </li>
+
+                    <li className="btn">
+                      <Link to={"/register"} className="nav-link">
+                        Регистрация
+                      </Link>
+                    </li>
+
+                  </div>
+              )}
+            </nav>
+
+            <div className="container mt-3">
+              <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/profile">
+                  <Profile/>
+                </Route>
+                <Route path="/admin" component={BoardAdmin} />
+                <Route path="/contract">
+                  <Start/>
+                </Route>
+                <Route path="/balance">
+                  <Balance/>
+                </Route>
+                <Route path="/story">
+                  <Story/>
+                </Route>
+                <Route path="/edit">
+                  <Edit/>
+                </Route>
+              </Switch>
+            </div>
+
+            { /*<AuthVerify logOut={this.logOut}/> */ }
           </div>
 
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
-
-        <div className="container mt-3">
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
-            <Route path="/admin" component={BoardAdmin} />
-          </Switch>
-        </div>
-
-        { /*<AuthVerify logOut={this.logOut}/> */ }
-      </div>
     );
   }
 }

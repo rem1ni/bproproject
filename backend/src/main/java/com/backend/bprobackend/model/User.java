@@ -1,9 +1,10 @@
 package com.backend.bprobackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
 
 @Entity
 @Table(name = "users",
@@ -17,7 +18,13 @@ public class User  {
 
     private String username;
     private String password;
-
+    private Double account;
+    private Double minutes;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "contracts_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "contract_id"))
+    private Contract contract;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
     joinColumns = @JoinColumn(name = "user_id"),
@@ -29,6 +36,22 @@ public class User  {
     public User(String username,  String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Double getAccount() {
+        return account;
+    }
+
+    public void setAccount(Double account) {
+        this.account = account;
+    }
+
+    public Double getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(Double minutes) {
+        this.minutes = minutes;
     }
 
     public Long getId() {
@@ -62,5 +85,13 @@ public class User  {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract= contract;
     }
 }

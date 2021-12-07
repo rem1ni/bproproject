@@ -1,10 +1,12 @@
 package com.backend.bprobackend.controller;
+import com.backend.bprobackend.repository.ContractRepos;
 import com.backend.bprobackend.response.JwtResponse;
 import com.backend.bprobackend.request.LoginRequest;
 import com.backend.bprobackend.request.SignupRequest;
 import com.backend.bprobackend.model.EnumRole;
 import com.backend.bprobackend.model.Role;
 import com.backend.bprobackend.model.User;
+import com.backend.bprobackend.model.Contract;
 import com.backend.bprobackend.repository.RoleRepos;
 import com.backend.bprobackend.repository.UserRepos;
 import com.backend.bprobackend.response.MessageResponse;
@@ -38,6 +40,9 @@ public class AuthController {
     RoleRepos roleRepository;
 
     @Autowired
+    ContractRepos contractRepository;
+
+    @Autowired
     PasswordEncoder encoder;
 
     @Autowired
@@ -56,11 +61,16 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
-
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
-                roles));
+                userDetails.getAccount(),
+                userDetails.getMinutes(),
+                userDetails.getContracts_id(),
+                userDetails.getContracts(),
+                userDetails.getContracts_sum(),
+                roles,
+                userDetails.getFac()));
     }
 
     @PostMapping("/signup")
@@ -68,7 +78,7 @@ public class AuthController {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Username is already taken!"));
+                    .body(new MessageResponse("Имя пользователя уже занято!"));
         }
         User user = new User(signUpRequest.getUsername(),
                 encoder.encode(signUpRequest.getPassword()));
@@ -78,11 +88,15 @@ public class AuthController {
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Role is not found."));
+                    .orElseThrow(() -> new RuntimeException("Роль не найдена."));
             roles.add(userRole);
+            Contract userContract = contractRepository.findByName("Отсутствует").orElseThrow(() -> new RuntimeException("Тариф не найден. "));
+            user.setContract(userContract);
         }
         user.setRoles(roles);
+        user.setAccount(0D);
+        user.setMinutes(0D);
         userRepository.save(user);
-        return ResponseEntity.ok(new MessageResponse("User registered!"));
+        return ResponseEntity.ok(new MessageResponse("Пользователь создан"));
     }
 }

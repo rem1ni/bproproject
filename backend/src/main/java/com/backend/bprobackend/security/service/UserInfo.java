@@ -11,18 +11,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class UserDetailsImpl implements UserDetails {
+public class UserInfo {
     private static final long serialVersionUID = 1L;
 
     private Long id;
     private String username;
     private Double account;
     private Double minutes;
-    @JsonIgnore
-    private String password;
 
 
-    private Collection<? extends GrantedAuthority> authorities;
+
     private  String contracts;
     private Integer contracts_id;
     private Double contracts_sum;
@@ -32,42 +30,35 @@ public class UserDetailsImpl implements UserDetails {
         return a*b;  //возвращаем значение при вызове данной функции
     }
     private Double fac;
-    public UserDetailsImpl(Long id, String username, String password, Double account, Double minutes,Integer contracts_id, String contracts, Double contracts_sum,
-                           Collection<? extends GrantedAuthority> authorities,Double fac) {
+    public UserInfo(Long id, String username, Double account, Double minutes,Integer contracts_id, String contracts, Double contracts_sum,
+                           Double fac) {
         this.id = id;
         this.username = username;
-        this.password = password;
         this.account=account;
         this.minutes=minutes;
         this.contracts_id=contracts_id;
         this.contracts=contracts;
         this.contracts_sum=contracts_sum;
-        this.authorities = authorities;
         this.fac=fac;
     }
 
-    public static UserDetailsImpl build(User user) {
+    public static UserInfo build(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
 
 
-        return new UserDetailsImpl(
+        return new UserInfo(
                 user.getId(),
                 user.getUsername(),
-                user.getPassword(),
                 user.getAccount(),
                 user.getMinutes(),
                 user.getContract().getId(),
                 user.getContract().getName(),
                 user.getContract().getSum(),
-                authorities,
                 function1(user.getContract().getSum(),user.getMinutes()));
     }
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
+
 
     public Double getFac() {
         return fac;
@@ -77,32 +68,15 @@ public class UserDetailsImpl implements UserDetails {
         return id;
     }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
 
-    @Override
+
     public String getUsername() {
         return username;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
 
-    @Override
     public boolean isEnabled() {
         return true;
     }
@@ -131,14 +105,4 @@ public class UserDetailsImpl implements UserDetails {
         this.contracts_id = contracts_id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        UserDetailsImpl user = (UserDetailsImpl) o;
-        return Objects.equals(id, user.id);
-    }
 }
-
