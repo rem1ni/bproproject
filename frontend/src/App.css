@@ -3,13 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 .kno{
   font-size: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
   font-weight: 500;
-  background: transparent;
+  background-color: #9ce3e7;
   border: none !important;
   cursor:pointer;
   width: 100%;
   margin-top: 0;
+  display:flex;
+  justify-content: center;
 }
 .btn{
   margin-left: 10px;
@@ -55,4 +57,11 @@ label {
   padding: 15px;
   border:2px solid gray;
   margin-top: 15px;
+}
+.lnk{
+  font-family: 'Roboto';
+  color:black;
+}
+.nav-link{
+  color:black;
 }

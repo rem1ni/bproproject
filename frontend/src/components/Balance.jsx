@@ -16,6 +16,11 @@ const Balance = () => {
     });
     const [sum,setSum]=useState('');
     const[mes,setMes] = useState("");
+    const currentUser = AuthService.getCurrentUser();
+    let iduser = currentUser.id;
+    AuthService.ref(iduser);
+    const cu = JSON.parse(localStorage.getItem('myKey'));
+    let id=cu.account;
     function Send() {
         let num = Number(sum);
         const currentUser = AuthService.getCurrentUser();
@@ -34,6 +39,9 @@ const Balance = () => {
     return (
         <div className="container mt-5">
             <div className="col-md-4 col-md-offset-4  p-3 m-lg-auto">
+            Баланс: {id}
+            <br></br>
+            <br></br>
                 Введите сумму пополнения:
                 <input className="input-range form-control mt-2" type="text" required data-min="0" data-max="10000" placeholder="Сумма"
                        value={sum}
@@ -48,18 +56,18 @@ const Balance = () => {
 
                                 <div className="row ">
                                     <div className="col-md-12">
-                                        <input className="input-range form-control" type="text" required data-min="0" data-max="9999999999999999" placeholder="Card Number" />
+                                        <input className="input-range form-control" type="text" required data-min="0" data-max="9999999999999999" placeholder="Номер карты" />
                                     </div>
                                 </div>
 
                                 <div className="row ">
                                     <div className="col-md-3 col-sm-3 col-xs-3">
-                                        <span className="help-block text-muted small-font"> Month</span>
-                                        <input className="input-range form-control" type="text" required data-min="0" data-max="12" placeholder="MM"/>
+                                        <span className="help-block text-muted small-font"> Месяц</span>
+                                        <input className="input-range form-control" type="text" required data-min="0" data-max="12" placeholder="ММ"/>
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
-                                        <span className="help-block text-muted small-font"> Year</span>
-                                        <input className="input-range form-control" type="text" required data-min="0" data-max="25" placeholder="YY"/>
+                                        <span className="help-block text-muted small-font"> Год</span>
+                                        <input className="input-range form-control" type="text" required data-min="0" data-max="25" placeholder="ГГ"/>
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
                                         <img src="https://bootstraptema.ru/snippets/form/2016/form-card/card.png"
@@ -74,7 +82,7 @@ const Balance = () => {
                                 <div className="row mt-3">
                                     <div className="col-md-12 pad-adjust">
 
-                                        <input type="text" required className="form-control" placeholder="Name"/>
+                                        <input type="text" required className="form-control" placeholder="Имя"/>
                                     </div>
                                 </div>
 

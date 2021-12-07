@@ -40,7 +40,8 @@ function changeTar() {
         <div className="post">
             <div className="post_content">
                 <strong>{props.post.id}. {props.post.name}</strong>
-                <div>{props.post.sum}</div>
+                <div><strong>Стоимость за минуту: {props.post.sum}</strong></div>
+
                 { (idcon === idcontract) ?
                     (<div>
                     Выбран данный тариф

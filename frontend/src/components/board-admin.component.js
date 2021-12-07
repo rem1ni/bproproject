@@ -63,19 +63,19 @@ export default class BoardAdmin extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Users List</h2>
+                <h2 className="text-center">Список пользователей</h2>
 
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Id </th>
-                                <th>username</th>
-                                <th>Balance</th>
-                                <th>Minutes</th>
-                                <th>Contract</th>
-                                <th>Add minutes</th>
-                                <th>Role</th>
-                                <th>Delete </th>
+                                <th>Имя пользователя</th>
+                                <th>Баланс</th>
+                                <th>Минуты</th>
+                                <th>Тариф</th>
+                                <th>Добавить минуты</th>
+                                <th>Роли</th>
+                                <th>Удалить </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,8 +88,8 @@ export default class BoardAdmin extends React.Component {
                                         <td>{user.account}</td>
                                         <td>{user.minutes}</td>
                                         <td><p2>
-          Contract name{": "} <strong>{user.contract.name}</strong><br></br>
-          Sum to pay{": "} <strong>{user.contract.sum}</strong><br></br>
+          Название тарифа{": "} <strong>{user.contract.name}</strong><br></br>
+          Сумма к оплате{": "} <strong>{user.contract.sum}</strong><br></br>
           </p2></td>
                                         <td>
                                             <form>
@@ -107,7 +107,7 @@ export default class BoardAdmin extends React.Component {
                                             >Изменить роль</button>
                                         </td>
                                         <td>
-                                            <button onClick={()=> this.del(user.id)}>Delete</button>
+                                            <button onClick={()=> this.del(user.id)}>Удалить</button>
                                         </td>
                                     </tr>
                                 )

@@ -59,54 +59,55 @@ class App extends Component {
     return (
 
           <div>
-            <nav className="kno">
-              <div className="navbar-nav mr-auto">
+            <nav>
 
-                {showAdminBoard && (
+
+           
+           
+
+              {currentUser ? (
+                  <div className="kno">
                     <li className="btn">
-                      <Link to={"/admin"} className="nav-link">
-                        Admin
+                      <Link to={"/profile"} className="nav-link ">
+                        {currentUser.username}
+                      </Link>
+                    </li>
+                    
+                    {showAdminBoard && (
+                    <li className="btn">
+                      <Link to={"/admin"} className="nav-link header-link">
+                        Админ
                       </Link>
                     </li>
                 )}
 
-              </div>
-
-              {currentUser ? (
-                  <div className="navbar-nav ml-auto">
-                    <li className="btn">
-                      <Link to={"/profile"} className="nav-link">
-                        {currentUser.username}
-                      </Link>
-                    </li>
-
                     <li className="btn">
                       <Link to={"/contract"} className="nav-link">
-                        Contracts
+                        Тарифы
                       </Link>
                     </li>
                     <li className="btn">
                       <Link to={"/balance"} className="nav-link">
-                        Balance
+                        Баланс
                       </Link>
                     </li>
                     <li className="btn">
                       <a href="/login" className="nav-link" onClick={this.logOut}>
-                        LogOut
+                        Выйти
                       </a>
                     </li>
                   </div>
               ) : (
-                  <div className="navbar-nav ml-auto">
+                  <div className="kno">
                     <li className="btn">
                       <Link to={"/login"} className="nav-link">
-                        Login
+                        Вход
                       </Link>
                     </li>
 
                     <li className="btn">
                       <Link to={"/register"} className="nav-link">
-                        Sign Up
+                        Регистрация
                       </Link>
                     </li>
 

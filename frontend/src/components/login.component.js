@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import logo from './logo.png';
+import logo from './unknown.png';
 import AuthService from "../services/auth.service";
 
 const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Это обязательное поле
       </div>
     );
   }
@@ -82,7 +82,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="col-md-12">
-        <div className="card card-container">
+        <div className="card card-container border border-dark">
           <img src={logo} alt="logo" />
 
           <Form
@@ -92,7 +92,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Имя пользователя</label>
               <Input
                 type="text"
                 className="form-control"
@@ -104,7 +104,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Пароль</label>
               <Input
                 type="password"
                 className="form-control"
@@ -115,15 +115,15 @@ export default class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group ">
               <button
-                className="btn btn-primary btn-block"
+                className="btn btn-primary btn-block "
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
-                  <span className="spinner-border spinner-border-sm"></span>
+                  <span className="spinner-border spinner-border-sm "></span>
                 )}
-                <span>Login</span>
+                <span className="btn-block"> Войти</span>
               </button>
             </div>
 
