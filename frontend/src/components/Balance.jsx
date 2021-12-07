@@ -14,6 +14,10 @@ const Balance = () => {
             this.value = value;
         }
     });
+    const[num,setNum]=useState();
+    const handleChange = (e) => {
+        setNum(e.target.value)
+    }
     const [sum,setSum]=useState('');
     const[mes,setMes] = useState("");
     const currentUser = AuthService.getCurrentUser();
@@ -56,7 +60,20 @@ const Balance = () => {
 
                                 <div className="row ">
                                     <div className="col-md-12">
-                                        <input className="input-range form-control" type="text" required data-min="0" data-max="9999999999999999" placeholder="Номер карты" />
+                                        <input
+
+                                            value={num}
+                                            onChange={(e) => {
+                                                if(e.target.value.length <17){
+                                                    handleChange(e)
+                                                }else {
+                                                    e.target.value=  e.target.value.slice(0,2)
+                                                }
+                                            }}
+                                            type="number"
+                                            placeholder={"0000 0000 0000 0000"}
+
+                                        />
                                     </div>
                                 </div>
 
@@ -78,13 +95,7 @@ const Balance = () => {
                                         <input type="password" className="input-range form-control" required data-min="0" data-max="999" placeholder="CVV"/>
                                     </div>
                                 </div>
-
-                                <div className="row mt-3">
-                                    <div className="col-md-12 pad-adjust">
-
-                                        <input type="text" required className="form-control" placeholder="Имя"/>
-                                    </div>
-                                </div>
+                                
 
                                 <div className="row mt-3">
                                     <div className="col-md-6 col-sm-6 col-xs-6 pad-adjust">
