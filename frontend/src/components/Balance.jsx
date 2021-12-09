@@ -61,7 +61,7 @@ const Balance = () => {
                        value={sum}
                        onChange={(e) => {
                             if(e.target.value !== '.'){
-                            if(e.target.value > 0){
+                            if(e.target.value >= 0){
                            if(e.target.value < 10000){
                                handleChange(e,setSum)
                            }else {
