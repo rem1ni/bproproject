@@ -2,14 +2,22 @@ import React,{useState} from 'react';
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
+
+
 const Balance = () => {
+
     const[num,setNum]=useState('');
     const [m,setM]=useState('');
     const [y,setY]=useState('');
     const [c,setC]=useState('');
     const[mes,setMes] = useState("");
     const handleChange = (e,set) => {
-        set(e.target.value)
+        let a = (e).target.value.replace('.','')
+        a = a.replace('-','')
+        a = a.replace('+','')
+        a = a.replace('e','')
+        a = a.replace('e','')
+            set(a)
     }
 
     const [sum,setSum]=useState('');
@@ -50,16 +58,18 @@ const Balance = () => {
             <br></br>
             <br></br>
                 Введите сумму пополнения:
-                <input className="input-range form-control mt-2" type="number" required  placeholder="Сумма"
+                <input className="input-range form-control mt-2" type="text"  required  placeholder="Сумма"
                        value={sum}
                        onChange={(e) => {
+                            if(e.target.value !== '.'){
+                            if(e.target.value >= 0){
                            if(e.target.value < 10000){
                                handleChange(e,setSum)
                            }else {
                                e.target.value=  '10000'
                                handleChange(e,setSum)
                            }
-                       }}
+                       }}}}
                 />
             </div>
             <div className="row ">
@@ -74,13 +84,14 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={num}
                                             onChange={(e) => {
+                                                if((Number(e.target.value)>=0)){
                                                 if(e.target.value.length <17){
                                                     handleChange(e,setNum)
                                                 }else {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
-                                            }}
-                                            type="number"
+                                            }}}
+                                            type="text"
                                             placeholder={"0000 0000 0000 0000"}
                                             required
                                         />
@@ -94,6 +105,7 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={m}
                                             onChange={(e) => {
+                                                if((Number(e.target.value)>=0)){
                                                 if(e.target.value.length <3){
                                                     handleChange(e,setM)
                                                     if(e.target.value>12){
@@ -104,8 +116,8 @@ const Balance = () => {
                                                 {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
-                                            }}
-                                            type="number"
+                                            }}}
+                                            type="text"
                                             placeholder={"MM"}
                                             required
                                         />
@@ -116,11 +128,16 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={y}
                                             onChange={(e) => {
+
                                                 if(e.target.value.length <3){
                                                     handleChange(e,setY)
                                                     if(e.target.value>26){
                                                         e.target.value='26'
                                                         handleChange(e,setY)}
+                                                if(e.target.value<22){
+                                                    e.target.value='22'
+                                                    handleChange(e,setY)
+                                                }
                                                 }
                                                 else
                                                 {
@@ -142,6 +159,7 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={c}
                                             onChange={(e) => {
+                                                if((Number(e.target.value)>=0)){
                                                 if(e.target.value.length <4){
                                                     handleChange(e,setC)
                                                 }
@@ -149,7 +167,7 @@ const Balance = () => {
                                                 {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
-                                            }}
+                                            }}}
                                             type="password"
                                             placeholder={"CVV"}
                                             required

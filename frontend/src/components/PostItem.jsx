@@ -54,15 +54,16 @@ function changeTar() {
                 </button>)}
 
 
-                {
-                    (currentUser1.roles.includes("ROLE_EMPLOYEE") === true)?
-                        (
-                            <button className="btn btn-success"
-                                    onClick={() => setModal(true)}
-                            >
-                                Редактировать
-                            </button>
-                        ): (<div/>)
+                 { 
+                     ((currentUser1.roles.includes("ROLE_EMPLOYEE") === true)&&(props.post.id != 1))?
+                     (
+                     <button className="btn btn-success"
+                     onClick={() => setModal(true)}
+                     >
+                     Редактировать
+                     </button>
+                     ): (<div/>)
+
                 }
 
                 
