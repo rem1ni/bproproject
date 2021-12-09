@@ -84,7 +84,7 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={num}
                                             onChange={(e) => {
-                                                if((e.target.value>=0)&&(e.target.value<=9)){
+                                                if((Number(e.target.value)>=0)){
                                                 if(e.target.value.length <17){
                                                     handleChange(e,setNum)
                                                 }else {
