@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
+
 const Balance = () => {
     const[num,setNum]=useState('');
     const [m,setM]=useState('');
@@ -53,14 +54,14 @@ const Balance = () => {
                 <input className="input-range form-control mt-2" type="number" pattern="[0-9]*" required  placeholder="Сумма"
                        value={sum}
                        onChange={(e) => {
-
+                            if((e <= 9)&&(e>=0)){
                            if(e.target.value < 10000){
                                handleChange(e,setSum)
                            }else {
                                e.target.value=  '10000'
                                handleChange(e,setSum)
                            }
-                       }}
+                       }}}
                 />
             </div>
             <div className="row ">
