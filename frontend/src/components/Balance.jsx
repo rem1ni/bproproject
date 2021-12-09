@@ -50,9 +50,10 @@ const Balance = () => {
             <br></br>
             <br></br>
                 Введите сумму пополнения:
-                <input className="input-range form-control mt-2" type="number" required  placeholder="Сумма"
+                <input className="input-range form-control mt-2" type="number" pattern="[0-9]*" required  placeholder="Сумма"
                        value={sum}
                        onChange={(e) => {
+
                            if(e.target.value < 10000){
                                handleChange(e,setSum)
                            }else {
@@ -121,6 +122,10 @@ const Balance = () => {
                                                     if(e.target.value>26){
                                                         e.target.value='26'
                                                         handleChange(e,setY)}
+                                                if(e.target.value<22){
+                                                    e.target.value='22'
+                                                    handleChange(e,setY)
+                                                }
                                                 }
                                                 else
                                                 {
