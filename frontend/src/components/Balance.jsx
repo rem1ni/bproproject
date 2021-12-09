@@ -5,7 +5,7 @@ import AuthService from "../services/auth.service";
 
 
 const Balance = () => {
-
+ let regexp = /[^a-zа-яё,._\-\/=\!\?0-9\s]/gi;
     const[num,setNum]=useState('');
     const [m,setM]=useState('');
     const [y,setY]=useState('');
@@ -13,7 +13,7 @@ const Balance = () => {
     const[mes,setMes] = useState("");
     const handleChange = (e,set) => {
         let a=e.target.value
-        a = a.replace('.','')
+        a = a.replace(regexp,'')
             set(a)
     }
 
