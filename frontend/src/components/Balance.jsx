@@ -13,6 +13,9 @@ const Balance = () => {
     const[mes,setMes] = useState("");
     const handleChange = (e,set) => {
         let a = (e).target.value.replace('.','')
+        a = a.replace('-','')
+        a = a.replace('+','')
+        a = a.replace('e','')
             set(a)
     }
 
