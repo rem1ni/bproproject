@@ -105,6 +105,7 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={m}
                                             onChange={(e) => {
+                                                if((Number(e.target.value)>=0)){
                                                 if(e.target.value.length <3){
                                                     handleChange(e,setM)
                                                     if(e.target.value>12){
@@ -115,7 +116,7 @@ const Balance = () => {
                                                 {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
-                                            }}
+                                            }}}
                                             type="number"
                                             placeholder={"MM"}
                                             required
@@ -127,6 +128,7 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={y}
                                             onChange={(e) => {
+
                                                 if(e.target.value.length <3){
                                                     handleChange(e,setY)
                                                     if(e.target.value>26){
@@ -157,6 +159,7 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={c}
                                             onChange={(e) => {
+                                                if((Number(e.target.value)>=0)){
                                                 if(e.target.value.length <4){
                                                     handleChange(e,setC)
                                                 }
@@ -164,7 +167,7 @@ const Balance = () => {
                                                 {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
-                                            }}
+                                            }}}
                                             type="password"
                                             placeholder={"CVV"}
                                             required
