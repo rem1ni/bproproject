@@ -117,7 +117,7 @@ const Balance = () => {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
                                             }}}
-                                            type="number"
+                                            type="text"
                                             placeholder={"MM"}
                                             required
                                         />
