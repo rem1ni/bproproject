@@ -12,9 +12,11 @@ const Balance = () => {
     const [c,setC]=useState('');
     const[mes,setMes] = useState("");
     const handleChange = (e,set) => {
-        let a=e.target.value
-        a = a.replace(regexp,'')
-            set(a)
+        let value = e.target.value
+        value = value.replace(/^\s/, '');
+        value = value.replace(/  /, ' ');
+        value = value.replace(regexp, '');
+            set(value)
     }
 
     const [sum,setSum]=useState('');
