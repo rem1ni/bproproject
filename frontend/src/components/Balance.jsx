@@ -16,6 +16,7 @@ const Balance = () => {
         a = a.replace('-','')
         a = a.replace('+','')
         a = a.replace('e','')
+        a = a.replace('e','')
             set(a)
     }
 
@@ -83,13 +84,14 @@ const Balance = () => {
                                             className="input-range form-control"
                                             value={num}
                                             onChange={(e) => {
+                                                if((e.target.value>=0)&&(e.target.value<=9)){
                                                 if(e.target.value.length <17){
                                                     handleChange(e,setNum)
                                                 }else {
                                                     e.target.value=  e.target.value.slice(0,2)
                                                 }
-                                            }}
-                                            type="number"
+                                            }}}
+                                            type="text"
                                             placeholder={"0000 0000 0000 0000"}
                                             required
                                         />
