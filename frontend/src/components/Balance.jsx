@@ -12,7 +12,8 @@ const Balance = () => {
     const [c,setC]=useState('');
     const[mes,setMes] = useState("");
     const handleChange = (e,set) => {
-            set(e)
+        let a = (e).target.value.replace('.','')
+            set(a)
     }
 
     const [sum,setSum]=useState('');
@@ -56,7 +57,7 @@ const Balance = () => {
                 <input className="input-range form-control mt-2" type="text"  required  placeholder="Сумма"
                        value={sum}
                        onChange={(e) => {
-                            if(e.value !== '.'){
+                            if(e.target.value !== '.'){
                             if(e.target.value > 0){
                            if(e.target.value < 10000){
                                handleChange(e,setSum)
