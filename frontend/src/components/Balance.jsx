@@ -5,18 +5,14 @@ import AuthService from "../services/auth.service";
 
 
 const Balance = () => {
- let regexp = /[^a-zа-яё,._\-\/=\!\?0-9\s]/gi;
+
     const[num,setNum]=useState('');
     const [m,setM]=useState('');
     const [y,setY]=useState('');
     const [c,setC]=useState('');
     const[mes,setMes] = useState("");
     const handleChange = (e,set) => {
-        let value = e.target.value
-        value = value.replace(/^\s/, '');
-        value = value.replace(/  /, ' ');
-        value = value.replace(regexp, '');
-            set(value)
+            set(e)
     }
 
     const [sum,setSum]=useState('');
@@ -57,10 +53,10 @@ const Balance = () => {
             <br></br>
             <br></br>
                 Введите сумму пополнения:
-                <input className="input-range form-control mt-2" type="number"  required  placeholder="Сумма"
+                <input className="input-range form-control mt-2" type="text"  required  placeholder="Сумма"
                        value={sum}
                        onChange={(e) => {
-
+                            if(e.value !== '.'){
                             if(e.target.value > 0){
                            if(e.target.value < 10000){
                                handleChange(e,setSum)
@@ -68,7 +64,7 @@ const Balance = () => {
                                e.target.value=  '10000'
                                handleChange(e,setSum)
                            }
-                       }}}
+                       }}}}
                 />
             </div>
             <div className="row ">
