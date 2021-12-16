@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop.Controller">
+   <children>
+      <Button layoutX="564.0" layoutY="322.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" prefHeight="41.0" prefWidth="208.0" text="Обновить таблицу" />
+      <TableView fx:id="MainTable" layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="500.0" />
+      <Button fx:id="DeleteButton" layoutX="529.0" layoutY="157.0" mnemonicParsing="false" onAction="#onButtonCLickDelete" prefHeight="25.0" prefWidth="139.0" text="Удалить пользователя" />
+      <Button fx:id="dButton" layoutX="688.0" layoutY="99.0" mnemonicParsing="false" onAction="#onButtonClickMinutes" text="Добавить Минуты" />
+      <CheckBox fx:id="empCheck" layoutX="596.0" layoutY="42.0" mnemonicParsing="false" text="Сотрудник" />
+      <CheckBox fx:id="adminCheck" layoutX="528.0" layoutY="38.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Админ" />
+      <Button fx:id="pickButton" layoutX="688.0" layoutY="38.0" mnemonicParsing="false" onAction="#onButtonClickRoles" prefHeight="25.0" prefWidth="116.0" text="Выбрать роли" />
+      <TextField fx:id="minutesField" layoutX="528.0" layoutY="100.0" prefHeight="25.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
