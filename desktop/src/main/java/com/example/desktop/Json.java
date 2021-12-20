@@ -54,7 +54,6 @@ public class Json {
     }
 
 
-    // парсим некоторые данные о погоде
     public static ObservableList<User> ShowUsers(String resultJson) {
         ObservableList<User> users= FXCollections.observableArrayList();
         try {
@@ -70,7 +69,7 @@ public class Json {
                 String username=(String) ((JSONObject) JsonArray.get(i)).get("username");
                 Double minutes=(Double) ((JSONObject) JsonArray.get(i)).get("minutes");
                 Double account=(Double) ((JSONObject) JsonArray.get(i)).get("account");
-                String nametariff= (String) contractArray.get("name");
+                String nametariff = (String) contractArray.get("name");
                 Double pay= (Double) contractArray.get("sum");
                 User user=new User(id,username,minutes,account,nametariff,pay);
                 users.add(user);
