@@ -108,10 +108,9 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="col-md-12">
-        <div className="card card-container border border-dark">
-          <img src={logo} alt="logo" />
-
+      <div >
+        <div className="container">
+          <img src="../Logo.png" alt="" className="logo"/>
           <Form
             onSubmit={this.handleRegister}
             ref={c => {
@@ -120,11 +119,11 @@ export default class Register extends Component {
           >
             {!this.state.successful && (
               <div>
-                <div className="form-group">
-                  <label htmlFor="username">Имя пользователя</label>
+                <div className="form-group1">
+                  <label htmlFor="username">Username</label>
                   <Input
                     type="text"
-                    className="form-control"
+                    placeholder="Login"
                     name="username"
                     value={this.state.username}
                     onChange={this.onChangeUsername}
@@ -134,11 +133,11 @@ export default class Register extends Component {
 
 
 
-                <div className="form-group">
-                  <label htmlFor="password">Пароль</label>
+                <div className="form-group1">
+                  <label htmlFor="password">Password</label>
                   <Input
                     type="password"
-                    className="form-control"
+                    placeholder="Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChangePassword}
@@ -146,8 +145,8 @@ export default class Register extends Component {
                   />
                 </div>
 
-                <div className="form-group">
-                  <button className="btn btn-primary btn-block">Зарегистрироваться</button>
+                <div className="form-group2">
+                  <button className="btn_form">Sign up</button>
                 </div>
               </div>
             )}

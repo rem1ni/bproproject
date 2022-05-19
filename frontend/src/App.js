@@ -59,54 +59,50 @@ class App extends Component {
     return (
 
           <div>
-            <nav>
-
-
-           
-           
-
+            <nav className='nav'>
               {currentUser ? (
-                  <div className="kno">
-                    <li className="btn">
-                      <Link to={"/profile"} className="nav-link ">
+                  <div className="nav_links">
+                    <li>
+                      <Link to={"/profile"}>
                         {currentUser.username}
                       </Link>
                     </li>
                     
                     {showAdminBoard && (
-                    <li className="btn">
-                      <Link to={"/admin"} className="nav-link header-link">
+                    <li>
+                      <Link to={"/admin"}>
                         Админ
                       </Link>
                     </li>
                 )}
 
-                    <li className="btn">
-                      <Link to={"/contract"} className="nav-link">
+                    <li >
+                      <Link to={"/contract"} >
                         Тарифы
                       </Link>
                     </li>
-                    <li className="btn">
-                      <Link to={"/balance"} className="nav-link">
+                    <img src="./Logo.png" alt="" className="nav_logo"/>
+                    <li >
+                      <Link to={"/balance"} >
                         Баланс
                       </Link>
                     </li>
-                    <li className="btn">
-                      <a href="/login" className="nav-link" onClick={this.logOut}>
+                    <li >
+                      <a href="/login"  onClick={this.logOut}>
                         Выйти
                       </a>
                     </li>
                   </div>
               ) : (
-                  <div className="kno">
-                    <li className="btn">
-                      <Link to={"/login"} className="nav-link">
+                  <div className="nav_links">
+                    <li >
+                      <Link to={"/login"} >
                         Вход
                       </Link>
                     </li>
 
-                    <li className="btn">
-                      <Link to={"/register"} className="nav-link">
+                    <li >
+                      <Link to={"/register"} >
                         Регистрация
                       </Link>
                     </li>
