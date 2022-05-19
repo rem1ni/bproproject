@@ -94,7 +94,7 @@ export default class BoardAdmin extends React.Component {
                                         <td>
                                             <form>
                                                 <input type="number"  className="form-control" placeholder="Минуты"  onChange={this.handleChange} />
-                                                <button className="btn btn-info" onClick={()=> this.add(user.id, this.state.min )}>Отправить</button>
+                                                <button className="btn btn-primary" onClick={()=> this.add(user.id, this.state.min )}>Отправить</button>
                                             </form>
 
                                         </td>
