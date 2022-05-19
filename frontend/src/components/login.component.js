@@ -4,7 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import logo from './unknown.png';
 import AuthService from "../services/auth.service";
-
+import "../style.css"
 const required = value => {
   if (!value) {
     return (
@@ -117,8 +117,8 @@ export default class Login extends Component {
 
             <div className="form-group ">
               <button
-                  style={{margin-top: 10px}}
-                className="btn btn-primary btn-block "
+                  
+                className="btn btn-primary btn-block btnm"
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
