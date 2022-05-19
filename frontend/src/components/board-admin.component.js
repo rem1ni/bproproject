@@ -99,7 +99,7 @@ export default class BoardAdmin extends React.Component {
 
                                         </td>
                                         <td>
-                                            <button className="btn btn-success"
+                                            <button className="btn btn-primary"
                                                     onClick={() => {
                                                         localStorage.setItem("idu",JSON.stringify(user.id));
                                                         this.setModal(true)
@@ -107,7 +107,7 @@ export default class BoardAdmin extends React.Component {
                                             >Изменить роль</button>
                                         </td>
                                         <td>
-                                            <button onClick={()=> this.del(user.id)}>Удалить</button>
+                                            <button className="btn btn-primary" onClick={()=> this.del(user.id)}>Удалить</button>
                                         </td>
                                     </tr>
                                 )
