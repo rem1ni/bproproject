@@ -94,12 +94,12 @@ export default class BoardAdmin extends React.Component {
                                         <td>
                                             <form>
                                                 <input type="number"  className="form-control" placeholder="Минуты"  onChange={this.handleChange} />
-                                                <button onClick={()=> this.add(user.id, this.state.min )}>Отправить</button>
+                                                <button onClick={()=> this.add(user.id, this.state.min ) className = "btn-info" }>Отправить</button>
                                             </form>
 
                                         </td>
                                         <td>
-                                            <button className="btn btn-success"
+                                            <button className="btn btn-info"
                                                     onClick={() => {
                                                         localStorage.setItem("idu",JSON.stringify(user.id));
                                                         this.setModal(true)
