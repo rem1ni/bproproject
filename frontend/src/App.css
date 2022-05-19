@@ -138,7 +138,7 @@ html{
   align-items: start;
   margin-bottom: 20px;
 }
-.form_group1 input {
+.form_group1 Input {
   width: 100%;
   height: 39px;
   background: rgba(196, 196, 196, 0.25);

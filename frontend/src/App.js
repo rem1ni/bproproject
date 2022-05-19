@@ -82,7 +82,7 @@ class App extends Component {
                       </Link>
                     </li>
                     <img src="./Logo.png" alt="" className="nav_logo"/>
-                    <li >
+                    <li>
                       <Link to={"/balance"} >
                         Баланс
                       </Link>
