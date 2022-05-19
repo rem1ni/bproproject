@@ -4,7 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import logo from './unknown.png';
 import AuthService from "../services/auth.service";
-
+import "../App.css";
 const required = value => {
   if (!value) {
     return (

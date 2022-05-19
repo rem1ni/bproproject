@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
 import axios from "axios";
 import logo from './unknown.png';
+import "../App.css";
  const Profile = () => {
   const [info,setInfo]=useState([]);
   const [stat,setStat]=useState([]);
@@ -27,32 +28,37 @@ import logo from './unknown.png';
 
   return (
       <Container
-          className="d-flex justify-content-center align-items-center"
-          style={{height: window.innerHeight - 54}}>
-        <Card style={{width:400}} className="border border-dark p-5">
-            <img src={logo} alt="logo" />
-          <p1>
-            Имя пользователя: <strong>{info.username}</strong><br></br>
-          </p1>
-          <br></br>
-          <p3>
-            Баланс: <strong>{info.account}</strong><br></br>
-          </p3>
-          <p2>
-            Номер тарифа{": "} <strong>{info.contracts_id}</strong><br></br>
-            Тариф{": "} <strong>{info.contracts}</strong><br></br>
-            Стоимость{": "} <strong>{info.contracts_sum}</strong> <p5>за минуту</p5><br></br>
-            Минуты{": "} <strong>{info.minutes}</strong><br></br>
-            Сумма к оплате{": "} <strong>{info.fac}</strong><br></br>
-          </p2>
-          <br></br>
-          <p2>
-            Роли{": "}<br></br>
-            {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
-          </p2>
-          <div className="ml-auto" >
-            <Link to="/story">История операций</Link>
-          </div>
+          className="profile_container">
+        <Card  className="card">
+            <div className="profile_username">
+                <strong>{info.username}</strong>
+            </div>
+            <div className="profile_data">
+                <div>Balance:<strong>{info.account}</strong></div>
+                <div>Contract: <strong>{info.contracts_id}</strong></div>
+                <div>Tarif: <strong>{info.contracts}</strong></div>
+                <div>Minutes: <strong>{info.minutes}</strong></div>
+                <div>Sum to pay: <strong>{info.fac}</strong></div>
+                <div>Transactions Story: <Link to="/story" className="card_btn">Check</Link></div>
+                <div>
+                    Roles: {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
+
+                </div>
+            </div>
+
+            {/*Номер тарифа{": "} <strong>{info.contracts_id}</strong><br></br>*/}
+            {/*Тариф{": "} <strong>{info.contracts}</strong><br></br>*/}
+            {/*Стоимость{": "} <strong>{info.contracts_sum}</strong> <p5>за минуту</p5><br></br>*/}
+            {/*Минуты{": "} <strong>{info.minutes}</strong><br></br>*/}
+            {/*Сумма к оплате{": "} <strong>{info.fac}</strong><br></br>*/}
+
+          {/*<p2>*/}
+          {/*  */}
+          {/*  {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}*/}
+          {/*</p2>*/}
+          {/*<div className="ml-auto" >*/}
+          {/*  <Link to="/story">История операций</Link>*/}
+          {/*</div>*/}
         </Card>
       </Container>
   );
