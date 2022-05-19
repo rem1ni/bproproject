@@ -97,13 +97,13 @@ class App extends Component {
                   <div className="nav_links">
                     <li>
                       <a href={"/login"} className="Links">
-                        Вход
+                        Login
                       </a>
                     </li>
 
                     <li >
                       <a href={"/register"} className="Links">
-                        Регистрация
+                        Sign Up
                       </a>
                     </li>
 
