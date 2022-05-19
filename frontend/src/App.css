@@ -95,6 +95,8 @@ html{
 
 }
 .nav_links a {
+  text-decoration: none;
+  color: black;
   display: block;
   width: 126px;
   height: 45px;
