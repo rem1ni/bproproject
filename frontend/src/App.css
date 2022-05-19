@@ -95,7 +95,7 @@ html{
   justify-content: center;
 
 }
-.nav_links a {
+.nav_links Link {
   display: block;
   width: 126px;
   height: 45px;
@@ -114,7 +114,7 @@ html{
   text-transform: uppercase;
   transition: 0.5s ease;
 }
-.nav_links a:hover {
+.nav_links Link:hover {
   background: rgba(181, 194, 247, 0.75);
   cursor: pointer;
 }
