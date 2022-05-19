@@ -107,7 +107,7 @@ export default class BoardAdmin extends React.Component {
                                             >Изменить роль</button>
                                         </td>
                                         <td>
-                                            <button onClick={()=> this.del(user.id)} className="btn btn-info">Удалить</button>
+                                            <button onClick={()=> this.del(user.id)}>Удалить</button>
                                         </td>
                                     </tr>
                                 )
