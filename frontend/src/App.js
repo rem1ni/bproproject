@@ -63,27 +63,27 @@ class App extends Component {
               {currentUser ? (
                   <div className="nav_links">
                     <li>
-                      <Link to={"/profile"}>
+                      <Link to={"/profile"} className="Links">
                         {currentUser.username}
                       </Link>
                     </li>
                     
                     {showAdminBoard && (
                     <li>
-                      <Link to={"/admin"}>
+                      <Link to={"/admin"} className="Links">
                         Админ
                       </Link>
                     </li>
                 )}
 
                     <li >
-                      <Link to={"/contract"} >
+                      <Link to={"/contract"} className="Links">
                         Тарифы
                       </Link>
                     </li>
                     <img src="./Logo.png" alt="" className="nav_logo"/>
                     <li>
-                      <Link to={"/balance"} >
+                      <Link to={"/balance"} className="Links">
                         Баланс
                       </Link>
                     </li>
@@ -95,14 +95,14 @@ class App extends Component {
                   </div>
               ) : (
                   <div className="nav_links">
-                    <li >
-                      <Link to={"/login"} >
+                    <li>
+                      <Link to={"/login"} className="Links">
                         Вход
                       </Link>
                     </li>
 
                     <li >
-                      <Link to={"/register"} >
+                      <Link to={"/register"} className="Links">
                         Регистрация
                       </Link>
                     </li>
