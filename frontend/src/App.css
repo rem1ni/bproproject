@@ -5,7 +5,7 @@
   font-size: 15px;
   font-family: 'Roboto';
   font-weight: 500;
-  background-color: #9ce3e7;
+  background: rgb(181, 194, 247);
   border: none !important;
   cursor:pointer;
   width: 100%;
@@ -20,7 +20,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   cursor:pointer;
-  background-color: #9ce3e7;
+  background: rgb(181, 194, 247);
   border: #f0f0f0;
 }
 label {
