@@ -63,9 +63,9 @@ class App extends Component {
               {currentUser ? (
                   <div className="nav_links">
                     <li>
-                      <Link to={"/profile"} className="Links">
+                      <a href={"/profile"} className="Links">
                         {currentUser.username}
-                      </Link>
+                      </a>
                     </li>
                     
                     {showAdminBoard && (
@@ -77,9 +77,9 @@ class App extends Component {
                 )}
 
                     <li >
-                      <Link to={"/contract"} className="Links">
+                      <a href={"/contract"} className="Links">
                         Тарифы
-                      </Link>
+                      </a>
                     </li>
                     <img src="./Logo.png" alt="" className="nav_logo"/>
                     <li>
