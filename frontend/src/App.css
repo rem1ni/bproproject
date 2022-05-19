@@ -95,9 +95,7 @@ html{
   justify-content: center;
 
 }
-
-.Links {
-  text-decoration: none;
+.nav_links a {
   display: block;
   width: 126px;
   height: 45px;
@@ -110,14 +108,13 @@ html{
   text-align: center;
   margin-right: 11px;
   margin-left: 10px;
-  color: black;
   background-color: #B1ADED;
   border: 1px solid black;
   border-radius: 7px;
   text-transform: uppercase;
   transition: 0.5s ease;
 }
-.nav_links Link:hover {
+.nav_links a:hover {
   background: rgba(181, 194, 247, 0.75);
   cursor: pointer;
 }
@@ -141,7 +138,7 @@ html{
   align-items: start;
   margin-bottom: 20px;
 }
-.form_group1 Input {
+.form_group1 input {
   width: 100%;
   height: 39px;
   background: rgba(196, 196, 196, 0.25);

@@ -70,9 +70,9 @@ class App extends Component {
                     
                     {showAdminBoard && (
                     <li>
-                      <Link to={"/admin"} className="Links">
+                      <a href={"/admin"} className="Links">
                         Админ
-                      </Link>
+                      </a>
                     </li>
                 )}
 
@@ -83,9 +83,9 @@ class App extends Component {
                     </li>
                     <img src="./Logo.png" alt="" className="nav_logo"/>
                     <li>
-                      <Link to={"/balance"} className="Links">
+                      <a href={"/balance"} className="Links">
                         Баланс
-                      </Link>
+                      </a>
                     </li>
                     <li >
                       <a href="/login"  onClick={this.logOut}>
@@ -96,15 +96,15 @@ class App extends Component {
               ) : (
                   <div className="nav_links">
                     <li>
-                      <Link to={"/login"} className="Links">
+                      <a href={"/login"} className="Links">
                         Вход
-                      </Link>
+                      </a>
                     </li>
 
                     <li >
-                      <Link to={"/register"} className="Links">
+                      <a href={"/register"} className="Links">
                         Регистрация
-                      </Link>
+                      </a>
                     </li>
 
                   </div>
