@@ -71,25 +71,25 @@ class App extends Component {
                     {showAdminBoard && (
                     <li>
                       <a href={"/admin"} className="Links">
-                        Админ
+                        Admin
                       </a>
                     </li>
                 )}
 
                     <li >
                       <a href={"/contract"} className="Links">
-                        Тарифы
+                        Tarif
                       </a>
                     </li>
                     <img src="./Logo.png" alt="" className="nav_logo"/>
                     <li>
                       <a href={"/balance"} className="Links">
-                        Баланс
+                        Balance
                       </a>
                     </li>
                     <li >
                       <a href="/login"  onClick={this.logOut}>
-                        Выйти
+                        Logout
                       </a>
                     </li>
                   </div>
