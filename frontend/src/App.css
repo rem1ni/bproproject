@@ -97,6 +97,7 @@ html{
 }
 
 .Links {
+  text-decoration: none;
   display: block;
   width: 126px;
   height: 45px;
