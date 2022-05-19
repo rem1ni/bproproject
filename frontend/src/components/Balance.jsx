@@ -52,8 +52,8 @@ const Balance = () => {
         }
     }
     return (
-        <div className="container mt-5">
-            <div className="col-md-4 col-md-offset-4  p-3 m-lg-auto">
+        <div >
+            <div >
             Баланс: {id}
             <br></br>
             <br></br>
