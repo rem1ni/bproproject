@@ -50,9 +50,9 @@ import logo from './unknown.png';
             Роли{": "}<br></br>
             {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
           </p2>
-          <div className="ml-auto" >
+          <button className="btn btn-primary" >
             <Link to="/story">История операций</Link>
-          </div>
+          </button>
         </Card>
       </Container>
   );
