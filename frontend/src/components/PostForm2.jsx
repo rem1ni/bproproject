@@ -18,12 +18,20 @@ const PostForm2 = ({create}) => {
     }
     return (
         <form>
-            Работник :
-            <input type="checkbox" checked={checked} onChange={handleChange} />
-            <button onClick={addNewPost} className="btn btn-success">Готово</button>
+            <div className="form-check form-switch">
+                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked={checked} onChange={handleChange}>
+                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault"> Employe</label>
+                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault2" checked={checked} onChange={handleChange2}>
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault2">Admin</label>
+            </div>
+            {/*Работник :*/}
+            {/*<input type="checkbox" checked={checked} onChange={handleChange} />*/}
+            {/*Админ :*/}
+            {/*<input type="checkbox" checked={checked2} onChange={handleChange2} />*/}
             <br/>
-            Админ :
-            <input type="checkbox" checked={checked2} onChange={handleChange2} />
+            <button onClick={addNewPost} className="btn btn-success">Готово</button>
+
+
 
         </form>
 
