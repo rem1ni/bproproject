@@ -57,7 +57,7 @@ function changeTar() {
                  { 
                      ((currentUser1.roles.includes("ROLE_EMPLOYEE") === true)&&(props.post.id != 1))?
                      (
-                     <button className="btn btn-btn-primary btnmar"
+                     <button className="btn btn-primary btnmar"
                      onClick={() => setModal(true)}
                      >
                      Edit
