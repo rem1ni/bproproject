@@ -27,7 +27,7 @@ const Story = () => {
 
     return (
         <div >
-            <h1 style={{textAlign:'center'}}>История</h1>
+            <h1 style={{textAlign:'center'}}>Story</h1>
             <div className="Blocks">
                 {posts.map((post,index) =>
                     <PostItem2  id={index + 1} post={post} key={post.id}/>

@@ -177,7 +177,7 @@ const Balance = () => {
 
                                 <div className="row mt-3">
                                     <div className="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                        <button className="btn btn-success" onClick={
+                                        <button className="btn btn-primary" onClick={
                                             Send
                                         }
                                         >Оплатить</button>

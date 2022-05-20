@@ -32,26 +32,26 @@ import logo from './unknown.png';
         <Card style={{width:400}} className="border border-dark p-5">
             <img src={logo} alt="logo" />
           <p1>
-            Имя пользователя: <strong>{info.username}</strong><br></br>
+            Username: <strong>{info.username}</strong><br></br>
           </p1>
           <br></br>
           <p3>
-            Баланс: <strong>{info.account}</strong><br></br>
+            Balance: <strong>{info.account}</strong><br></br>
           </p3>
           <p2>
-            Номер тарифа{": "} <strong>{info.contracts_id}</strong><br></br>
-            Тариф{": "} <strong>{info.contracts}</strong><br></br>
-            Стоимость{": "} <strong>{info.contracts_sum}</strong> <p5>за минуту</p5><br></br>
-            Минуты{": "} <strong>{info.minutes}</strong><br></br>
-            Сумма к оплате{": "} <strong>{info.fac}</strong><br></br>
+            Tariff Number{": "} <strong>{info.contracts_id}</strong><br></br>
+            Tariff Name{": "} <strong>{info.contracts}</strong><br></br>
+            Price{": "} <strong>{info.contracts_sum}</strong> <p5>за минуту</p5><br></br>
+            Minutes{": "} <strong>{info.minutes}</strong><br></br>
+            Sum to pay{": "} <strong>{info.fac}</strong><br></br>
           </p2>
           <br></br>
           <p2>
-            Роли{": "}<br></br>
+            Roles{": "}<br></br>
             {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
           </p2>
           <button className="btn btn-primary" >
-            <Link to="/story">История операций</Link>
+            <Link to="/story">Transaction story</Link>
           </button>
         </Card>
       </Container>

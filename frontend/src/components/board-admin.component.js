@@ -3,6 +3,7 @@ import UserService from '../services/user.service';
 import axios from "axios";
 import PostForm2 from "./PostForm2";
 import MyModal2 from "./MyModal2";
+import "../style.css";
 export default class BoardAdmin extends React.Component {
     del(iduser){
         return axios
@@ -63,19 +64,19 @@ export default class BoardAdmin extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Список пользователей</h2>
+                <h2 className="text-center">User List</h2>
 
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Id </th>
-                                <th>Имя пользователя</th>
-                                <th>Баланс</th>
-                                <th>Минуты</th>
-                                <th>Тариф</th>
-                                <th>Добавить минуты</th>
-                                <th>Роли</th>
-                                <th>Удалить </th>
+                                <th>User Name</th>
+                                <th>Balance</th>
+                                <th>Minutes</th>
+                                <th>Tariff</th>
+                                <th>Add minutes</th>
+                                <th>Roles</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,26 +89,26 @@ export default class BoardAdmin extends React.Component {
                                         <td>{user.account}</td>
                                         <td>{user.minutes}</td>
                                         <td><p2>
-          Название тарифа{": "} <strong>{user.contract.name}</strong><br></br>
-          Сумма к оплате{": "} <strong>{user.contract.sum}</strong><br></br>
+          Tariff name{": "} <strong>{user.contract.name}</strong><br></br>
+          Sum to pay{": "} <strong>{user.contract.sum}</strong><br></br>
           </p2></td>
                                         <td>
                                             <form>
-                                                <input type="number"  className="form-control" placeholder="Минуты"  onChange={this.handleChange} />
-                                                <button className="btn btn-primary" onClick={()=> this.add(user.id, this.state.min )}>Отправить</button>
+                                                <input type="number"  className="form-control" placeholder="Minutes"  onChange={this.handleChange} />
+                                                <button className="btn btn-primary btnm" onClick={()=> this.add(user.id, this.state.min )}>Send</button>
                                             </form>
 
                                         </td>
                                         <td>
-                                            <button className="btn btn-primary"
+                                            <button className="btn btn-primary btnm"
                                                     onClick={() => {
                                                         localStorage.setItem("idu",JSON.stringify(user.id));
                                                         this.setModal(true)
                                                     }}
-                                            >Изменить роль</button>
+                                            >Change role</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-primary" onClick={()=> this.del(user.id)}>Удалить</button>
+                                            <button className="btn btn-primary btnm" onClick={()=> this.del(user.id)}>Delete</button>
                                         </td>
                                     </tr>
                                 )

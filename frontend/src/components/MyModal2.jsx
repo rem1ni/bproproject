@@ -14,7 +14,7 @@ const MyModal = ({children, visible, setVisible}) => {
                 {children}
                 <button className="btn btn-danger " onClick={() => {
                     setVisible(false)
-                }}>Отмена</button>
+                }}>Cancel</button>
             </div>
 
 

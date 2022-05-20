@@ -40,17 +40,17 @@ function changeTar() {
         <div className="post">
             <div className="post_content">
                 <strong>{props.post.id}. {props.post.name}</strong>
-                <div><strong>Стоимость за минуту: {props.post.sum}</strong></div>
+                <div><strong>Price: {props.post.sum}</strong></div>
 
                 { (idcon === idcontract) ?
                     (<div>
-                    Выбран данный тариф
+                        This tariff is selected
                 </div>)
                 :
                     (<button className="btn btn-success"
                 onClick= {changeTar}
                 >
-                    Выбрать
+                    Choose
                 </button>)}
 
 
@@ -60,7 +60,7 @@ function changeTar() {
                      <button className="btn btn-success"
                      onClick={() => setModal(true)}
                      >
-                     Редактировать
+                     Edit
                      </button>
                      ): (<div/>)
 
