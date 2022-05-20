@@ -43,11 +43,11 @@ public class PayController {
                 Pay pay = new Pay(payRequest.getI(), payRequest.getNum(), user.getAccount(), time);
                 payRepos.save(pay);
 
-                return ResponseEntity.ok("Платеж успешно выполнен");
+                return ResponseEntity.ok("Payment completed successfully");
             }
-            else {if(a==1) return ResponseEntity.ok("Недостаточно средств"); else return ResponseEntity.ok("Нет соединения с банком");}
+            else {if(a==1) return ResponseEntity.ok("Insufficient funds"); else return ResponseEntity.ok("Нет соединения с банком");}
         }
         else
-        { return ResponseEntity.ok("Неверная сумма(мин: 1, макс: 10000)");}
+        { return ResponseEntity.ok("Wrong sum(min: 1, max: 10000)");}
     }
 }
