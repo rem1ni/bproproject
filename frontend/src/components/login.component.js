@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import logo from './unknown.png';
+import logo from './Logo.png';
 import AuthService from "../services/auth.service";
 import "../style.css"
 const required = value => {

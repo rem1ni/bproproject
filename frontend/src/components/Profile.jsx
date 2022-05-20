@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
 import axios from "axios";
-import logo from './unknown.png';
+import logo from './Logo.png';
 import "../style.css"
  const Profile = () => {
   const [info,setInfo]=useState([]);
