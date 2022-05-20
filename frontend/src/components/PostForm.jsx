@@ -21,14 +21,14 @@ const PostForm = ({create}) => {
                 value={post.title}
                 onChange={e => setPost({...post, title: e.target.value})}
                 type="text"
-                placeholder="Название тарифа"
+                placeholder="Tariff name"
             />
             {/*Неуправляемый\Неконтролируемый компонент*/}
             <input
                 value={post.body}
                 onChange={e => setPost({...post, body: e.target.value})}
                 type="text"
-                placeholder="Стоимость"
+                placeholder="Price"
             />
             <button onClick={addNewPost}>Применить</button>
         </form>
