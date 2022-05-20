@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from './MyModal.module.css';
-
+import "../style.css"
 const MyModal = ({children, visible, setVisible}) => {
     const rootClasses = [cl.myModal]
 
@@ -12,7 +12,7 @@ const MyModal = ({children, visible, setVisible}) => {
         <div className={rootClasses.join(' ')}  >
             <div className={cl.myModalContent} onClick={(e) => e.stopPropagation()}>
                 {children}
-                <button className="btn btn-danger " onClick={() => {
+                <button className="btn btn-danger btnmar" onClick={() => {
                     setVisible(false)
                 }}>Cancel</button>
             </div>
