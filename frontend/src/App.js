@@ -76,24 +76,24 @@ class App extends Component {
                     {showAdminBoard && (
                     <li className="btn">
                       <Link to={"/admin"} className="nav-link header-link">
-                        Админ
+                        Admin
                       </Link>
                     </li>
                 )}
 
                     <li className="btn">
                       <Link to={"/contract"} className="nav-link">
-                        Тарифы
+                        Tariff
                       </Link>
                     </li>
                     <li className="btn">
                       <Link to={"/balance"} className="nav-link">
-                        Баланс
+                        Balance
                       </Link>
                     </li>
                     <li className="btn">
                       <a href="/login" className="nav-link" onClick={this.logOut}>
-                        Выйти
+                        Logout
                       </a>
                     </li>
                   </div>
@@ -101,13 +101,13 @@ class App extends Component {
                   <div className="kno">
                     <li className="btn">
                       <Link to={"/login"} className="nav-link">
-                        Вход
+                        Login
                       </Link>
                     </li>
 
                     <li className="btn">
                       <Link to={"/register"} className="nav-link">
-                        Регистрация
+                        Signup
                       </Link>
                     </li>
 
