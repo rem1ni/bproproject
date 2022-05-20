@@ -58,7 +58,7 @@ const Balance = () => {
             <br></br>
             <br></br>
                 Sum to pay:
-                <input className="input-range form-control mt-2" type="text"  required  placeholder="Сумма"
+                <input className="input-range form-control mt-2" type="text"  required  placeholder="Sum"
                        value={sum}
                        onChange={(e) => {
                             if(e.target.value !== '.'){
