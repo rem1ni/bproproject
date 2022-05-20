@@ -45,7 +45,7 @@ public class PayController {
 
                 return ResponseEntity.ok("Payment completed successfully");
             }
-            else {if(a==1) return ResponseEntity.ok("Insufficient funds"); else return ResponseEntity.ok("Нет соединения с банком");}
+            else {if(a==1) return ResponseEntity.ok("Insufficient funds"); else return ResponseEntity.ok("Can't connect to bank");}
         }
         else
         { return ResponseEntity.ok("Wrong sum(min: 1, max: 10000)");}
