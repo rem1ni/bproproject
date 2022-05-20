@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import "../style.css"
 
 
 const PostForm2 = ({create}) => {
@@ -29,7 +29,7 @@ const PostForm2 = ({create}) => {
             Admin
             <input type="checkbox" className=" form-check form-switch form-check-input" checked={checked2} onChange={handleChange2} />
             <br/>
-            <button onClick={addNewPost} className="btn btn-primary">Select</button>
+            <button onClick={addNewPost} className="btn btn-primary btn_success">Select</button>
 
 
 
