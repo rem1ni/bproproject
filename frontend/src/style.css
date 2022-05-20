@@ -2,6 +2,9 @@
     margin-top: 15px;
      margin-left: -10px;
 }
+.btnmar {
+    margin-left: 0;
+}
 a {
     text-decoration: none;
 }

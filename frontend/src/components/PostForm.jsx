@@ -30,7 +30,7 @@ const PostForm = ({create}) => {
                 type="text"
                 placeholder="Price"
             />
-            <button onClick={addNewPost}>Применить</button>
+            <button onClick={addNewPost}>Submit</button>
         </form>
     );
 };

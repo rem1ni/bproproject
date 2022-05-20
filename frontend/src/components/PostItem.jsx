@@ -4,7 +4,7 @@ import axios from "axios";
 import Edit from "./MyModal";
 import MyModal from "./MyModal";
 import PostForm from "./PostForm";
-
+import "../style.css"
 const PostContract = (props) => {
     const [modal, setModal] = useState(false);
 
@@ -47,7 +47,7 @@ function changeTar() {
                         This tariff is selected
                 </div>)
                 :
-                    (<button className="btn btn-success"
+                    (<button className="btn btn-primary btnmar"
                 onClick= {changeTar}
                 >
                     Choose
@@ -57,7 +57,7 @@ function changeTar() {
                  { 
                      ((currentUser1.roles.includes("ROLE_EMPLOYEE") === true)&&(props.post.id != 1))?
                      (
-                     <button className="btn btn-success"
+                     <button className="btn btn-btn-primary btnmar"
                      onClick={() => setModal(true)}
                      >
                      Edit
