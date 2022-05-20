@@ -5,7 +5,7 @@
 .btnmar {
     margin-left: 0;
 }
-.btnmar:nth-child(2) {
+.btnmar:nth-child(2n) {
     margin-left: 10px;
 }
 a {
