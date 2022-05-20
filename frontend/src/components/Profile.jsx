@@ -42,7 +42,7 @@ import "../style.css"
           <p2>
             Tariff Number{": "} <strong>{info.contracts_id}</strong><br></br>
             Tariff Name{": "} <strong>{info.contracts}</strong><br></br>
-            Price{": "} <strong>{info.contracts_sum}</strong><br></br>
+            Price{": "} <strong>{info.contracts_sum}</strong> <p2> per minute</p2>     <br></br>
             Minutes{": "} <strong>{info.minutes}</strong><br></br>
             Sum to pay{": "} <strong>{info.fac}</strong><br></br>
           </p2>
