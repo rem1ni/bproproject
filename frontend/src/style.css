@@ -16,3 +16,6 @@ a {
 a:hover{
     color: white;
 }
+.btnlnk:hover {
+    color: white;
+}

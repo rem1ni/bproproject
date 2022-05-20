@@ -51,7 +51,7 @@ import "../style.css"
             Roles{": "}<br></br>
             {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
           </p2>
-          <button className="btn btn-primary" >
+          <button className="btn btn-primary btnlnk"  >
             <a href="/story" className="lnk">Transaction story</a>
           </button>
         </Card>
