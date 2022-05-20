@@ -57,7 +57,7 @@ const Balance = () => {
             Баланс: {id}
             <br></br>
             <br></br>
-                Введите сумму пополнения:
+                Sum to pay:
                 <input className="input-range form-control mt-2" type="text"  required  placeholder="Сумма"
                        value={sum}
                        onChange={(e) => {
@@ -100,7 +100,7 @@ const Balance = () => {
 
                                 <div className="row ">
                                     <div className="col-md-3 col-sm-3 col-xs-3 ">
-                                        <span className="help-block text-muted small-font"> Месяц</span>
+                                        <span className="help-block text-muted small-font">Month</span>
                                         <input
                                             className="input-range form-control"
                                             value={m}
@@ -123,7 +123,7 @@ const Balance = () => {
                                         />
                                     </div>
                                     <div className="col-md-3 col-sm-3 col-xs-3">
-                                        <span className="help-block text-muted small-font"> Год</span>
+                                        <span className="help-block text-muted small-font"> Year</span>
                                         <input
                                             className="input-range form-control"
                                             value={y}
@@ -145,7 +145,7 @@ const Balance = () => {
                                                 }
                                             }}
                                             type="number"
-                                            placeholder={"ГГ"}
+                                            placeholder={"YY"}
                                             required
                                         />
                                     </div>
@@ -180,7 +180,7 @@ const Balance = () => {
                                         <button className="btn btn-primary" onClick={
                                             Send
                                         }
-                                        >Оплатить</button>
+                                        >Pay</button>
                                     </div>
                                 </div>
                             </form>

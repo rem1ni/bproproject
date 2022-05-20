@@ -19,7 +19,7 @@ function Start() {
 
     return (
         <div style={{margin: "25px"}} className="App">
-            <PostList posts={posts} title={'Тарифы'}/>
+            <PostList posts={posts} title={'Tariff'}/>
         </div>
     );
 }

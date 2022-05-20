@@ -6,7 +6,7 @@ const PostList = ({posts,title}) => {
     if(!posts.length){
         return(
             <h1 style={{textAlign:"center"}}>
-            Тут пока пусто
+            Empty
             </h1>
         )
     }
