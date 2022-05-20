@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
-
+import "../style.css"
 
 const Balance = () => {
 
@@ -54,7 +54,7 @@ const Balance = () => {
     return (
         <div className="container mt-5">
             <div className="col-md-4 col-md-offset-4  p-3 m-lg-auto">
-            Баланс: {id}
+            Balance: {id}
             <br></br>
             <br></br>
                 Sum to pay:
@@ -177,7 +177,7 @@ const Balance = () => {
 
                                 <div className="row mt-3">
                                     <div className="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                        <button className="btn btn-primary" onClick={
+                                        <button className="btn btn-primary btnm" onClick={
                                             Send
                                         }
                                         >Pay</button>

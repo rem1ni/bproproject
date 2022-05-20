@@ -92,7 +92,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Имя пользователя</label>
+              <label htmlFor="username">Username</label>
               <Input
                 type="text"
                 className="form-control"
@@ -104,7 +104,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Пароль</label>
+              <label htmlFor="password">Password</label>
               <Input
                 type="password"
                 className="form-control"
@@ -124,7 +124,7 @@ export default class Login extends Component {
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm "></span>
                 )}
-                <span className="btn-block "> Войти</span>
+                <span className="btn-block "> Login</span>
               </button>
             </div>
 
