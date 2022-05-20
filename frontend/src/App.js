@@ -101,13 +101,13 @@ class App extends Component {
                   <div className="kno">
                     <li className="btn">
                       <Link to={"/login"} className="nav-link">
-                        Login
+                        Sign in
                       </Link>
                     </li>
 
                     <li className="btn">
                       <Link to={"/register"} className="nav-link">
-                        Signup
+                        Sign up
                       </Link>
                     </li>
 

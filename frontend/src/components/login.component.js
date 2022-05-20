@@ -124,7 +124,7 @@ export default class Login extends Component {
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm "></span>
                 )}
-                <span className="btn-block ">Login</span>
+                <span className="btn-block ">Sign in</span>
               </button>
             </div>
 
