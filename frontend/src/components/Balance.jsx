@@ -29,13 +29,13 @@ const Balance = () => {
     const Send =(e)=> {
         e.preventDefault()
         if((num.toString().length) < 16){
-            setMes('Номер карты должен содержать 16 символов')
+            setMes('Card number must contain 16 characters')
         } else if(m.toString().length < 2){
-            setMes('Месяц должен содержать 2 символа')
+            setMes('Month must contain 2 characters')
         }else if(y.toString().length < 2) {
-            setMes('Год должен содержать 2 символа')
+            setMes('Year must contain 2 characters')
         }else if(c.toString().length < 3) {
-            setMes('CVV должен содержать 3 символа')
+            setMes('CVV must contain 3 characters')
         }else {
             let num = Number(sum);
             const currentUser = AuthService.getCurrentUser();
