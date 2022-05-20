@@ -24,12 +24,12 @@ const PostForm2 = ({create}) => {
                     <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault2" checked={checked} onChange={handleChange2}/>
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault2">Admin</label>
             </div> */}
-            Работник
+            Employee
             <input type="checkbox" className=" form-check form-switch form-check-input" checked={checked} onChange={handleChange} />
-            Админ
+            Admin
             <input type="checkbox" className=" form-check form-switch form-check-input" checked={checked2} onChange={handleChange2} />
             <br/>
-            <button onClick={addNewPost} className="btn btn-success">Готово</button>
+            <button onClick={addNewPost} className="btn btn-primary">Готово</button>
 
 
 
