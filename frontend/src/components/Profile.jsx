@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
 import axios from "axios";
 import logo from './unknown.png';
+import "../style.css"
  const Profile = () => {
   const [info,setInfo]=useState([]);
   const [stat,setStat]=useState([]);
@@ -41,7 +42,7 @@ import logo from './unknown.png';
           <p2>
             Tariff Number{": "} <strong>{info.contracts_id}</strong><br></br>
             Tariff Name{": "} <strong>{info.contracts}</strong><br></br>
-            Price{": "} <strong>{info.contracts_sum}</strong> <p5>за минуту</p5><br></br>
+            Price{": "} <strong>{info.contracts_sum}</strong><br></br>
             Minutes{": "} <strong>{info.minutes}</strong><br></br>
             Sum to pay{": "} <strong>{info.fac}</strong><br></br>
           </p2>
@@ -51,7 +52,7 @@ import logo from './unknown.png';
             {stat.roles && stat.roles.map((role, index) => <strong key={index}>{role}<br></br></strong>)}
           </p2>
           <button className="btn btn-primary" >
-            <Link to="/story">Transaction story</Link>
+            <a href="/story" className="lnk">Transaction story</a>
           </button>
         </Card>
       </Container>
