@@ -10,6 +10,7 @@
 
 .myModalContent {
     display: flex;
+    align-items: end;
     padding: 25px;
     background: white;
     border-radius: 16px;
