@@ -23,9 +23,9 @@ public class PayDetailService {
     UserRepos userRepository;
     @Autowired
     PayRepos payRepos;
-    String timetopay="01";
+    String timetopay="21";
 
-    @Scheduled(fixedDelay = 3600000)
+    @Scheduled(fixedDelay = 86400)
     public void PayService1(){
         String time=new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
         List<User> users=  userRepository.findAll();

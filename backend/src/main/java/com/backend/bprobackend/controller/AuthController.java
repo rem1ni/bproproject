@@ -88,9 +88,9 @@ public class AuthController {
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Роль не найдена."));
+                    .orElseThrow(() -> new RuntimeException("Role not found."));
             roles.add(userRole);
-            Contract userContract = contractRepository.findByName("None").orElseThrow(() -> new RuntimeException("Тариф не найден. "));
+            Contract userContract = contractRepository.findByName("None").orElseThrow(() -> new RuntimeException("Тariff not found. "));
             user.setContract(userContract);
         }
         user.setRoles(roles);
